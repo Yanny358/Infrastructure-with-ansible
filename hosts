@@ -1,4 +1,4 @@
-WB ansible_host=193.40.156.86 ansible_port=8322 ansible_ssh_user=ubuntu
+WB ansible_host=193.40.156.86 ansible_port=7722 ansible_ssh_user=ubuntu
 
 [web_servers]
 WB
