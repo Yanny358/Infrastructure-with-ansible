@@ -1,9 +1,12 @@
-Yanny358-1 ansible_host=193.40.156.86 ansible_port=18922 ansible_ssh_user=ubuntu
-Yanny358-2 ansible_host=193.40.156.86 ansible_port=1322 ansible_ssh_user=ubuntu
+Yanny358-1 ansible_host=193.40.156.86 ansible_port=12622 ansible_ssh_user=ubuntu
+Yanny358-2 ansible_host=193.40.156.86 ansible_port=9122 ansible_ssh_user=ubuntu
 
 
 [web_servers]
 Yanny358-1
 
 [db_servers]
+Yanny358-2
+
+[dns_servers]
 Yanny358-2

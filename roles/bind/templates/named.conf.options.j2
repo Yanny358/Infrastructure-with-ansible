@@ -1,0 +1,11 @@
+acl lan { {{ local_network }}; {{ localhost }}; };
+options {
+	directory "/var/cache/bind";
+	forwarders {
+      {% for ip in dns_forwarders %}
+	    {{ ip }};
+      {% endfor %}
+	};
+    allow-query { lan; };
+	dnssec-validation no;
+};

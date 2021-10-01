@@ -18,3 +18,18 @@
       - agama
       - uwsgi
       - nginx
+      
+
+  - name: DNS server
+    hosts: dns_servers
+    become: yes
+    gather_facts: no
+    roles:
+      - bind
+
+  - name: DNS Resolve
+    hosts: all
+    become: yes
+    gather_facts: no
+    roles:
+      - dns_resolve

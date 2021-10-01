@@ -1,4 +1,4 @@
-mysql_host: 192.168.42.13
+mysql_host: Yanny358-2.iptv.cs
 mysql_database: agama
 mysql_user: agama
 mysql_password: !vault |
@@ -8,3 +8,11 @@ mysql_password: !vault |
           35393862643135633330383664323738313739386261313864346461353462393138613736653335
           6564383763303664320a626363306537306164306530313936623338666634633132353538643438
           3939
+
+dns_forwarders:
+  - 1.1.1.1
+  - 9.9.9.9
+
+local_network: 192.168.42.0/24
+localhost: 127.0.0.0/8
+domain: iptv.cs
