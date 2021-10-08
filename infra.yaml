@@ -5,6 +5,13 @@
     roles:
       - init
 
+  - name: Node exporter
+    hosts: all
+    become: yes
+    roles:
+      - node_exporter
+      - nginx
+
   - name: Database server
     hosts: db_servers
     become: yes
@@ -18,8 +25,8 @@
       - agama
       - uwsgi
       - nginx
+    
       
-
   - name: DNS server
     hosts: dns_servers
     become: yes
@@ -33,3 +40,10 @@
     gather_facts: no
     roles:
       - dns_resolve
+
+  - name: Prometheus
+    hosts: prometheus
+    become: yes
+    gather_facts: no
+    roles:
+      - prometheus

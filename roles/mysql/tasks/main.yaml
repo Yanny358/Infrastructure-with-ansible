@@ -1,7 +1,8 @@
 - name: Install mysql
   apt: 
-    name: mysql-server
-    name: python3-pymysql
+    pkg:
+      - mysql-server
+      - python3-pymysql
 
 - name: Copy file 
   ansible.builtin.template:
