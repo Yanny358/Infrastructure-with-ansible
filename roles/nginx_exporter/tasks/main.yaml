@@ -1,0 +1,16 @@
+- name: Install nginx exporter
+  apt: 
+    pkg:
+      - prometheus-nginx-exporter
+
+- name: Copy file 
+  ansible.builtin.template:
+    src: exporter
+    dest: /etc/nginx/sites-enabled/exporter
+  notify: restart nginx exporter
+
+- name: Enable nginx_exporter
+  ansible.builtin.service:
+    name: prometheus-nginx-exporter
+    state: started
+    enabled: yes
