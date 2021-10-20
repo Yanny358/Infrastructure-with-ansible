@@ -23,17 +23,21 @@
   ansible.builtin.template:
     src: sample.yaml
     dest: /etc/grafana/provisioning/datasources/sample.yaml
+  notify: Restart grafana
 
 - name: Dashboard Grafana
   ansible.builtin.template:
     src: main.yaml
     dest: /etc/grafana/provisioning/dashboards/main.yaml
+  notify: Restart grafana
 
-- name: Main settings json
-  ansible.builtin.template:
-    src: main.yaml
+- name: Main dashboard
+  ansible.builtin.copy:
+    src: Main.json
     dest: /var/lib/grafana/main.json
   notify: Restart grafana
+    
+  
 
 - name: Enable grafana
   ansible.builtin.service:

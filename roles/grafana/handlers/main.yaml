@@ -1,10 +1,12 @@
-- name: Update and upgrade apt packages
+- name: Update apt packages
   become: true
   apt:
     update_cache: yes
 
-- name: Restart password
-  ansible.builtin.command: grafana-cli admin reset-admin-password "{{ grafana_pass }}"
+- name: Reset password
+  shell: |
+    sleep 30
+    grafana-cli admin reset-admin-password {{grafana_pass}}
 
 - name: Restart grafana
   ansible.builtin.service:
