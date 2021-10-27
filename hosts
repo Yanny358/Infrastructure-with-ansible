@@ -1,5 +1,5 @@
-Yanny358-1 ansible_host=193.40.156.86 ansible_port=6622 ansible_ssh_user=ubuntu
-Yanny358-2 ansible_host=193.40.156.86 ansible_port=14622 ansible_ssh_user=ubuntu
+Yanny358-1 ansible_host=193.40.156.86 ansible_port=16122 ansible_ssh_user=ubuntu
+Yanny358-2 ansible_host=193.40.156.86 ansible_port=17722 ansible_ssh_user=ubuntu
 
 
 [web_servers]
@@ -16,3 +16,6 @@ Yanny358-2
 
 [grafana]
 Yanny358-2
+
+[influxdb]
+Yanny358-1

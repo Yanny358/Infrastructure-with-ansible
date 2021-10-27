@@ -8,6 +8,7 @@
   - name: Node exporter and nginx exporter
     hosts: all
     become: yes
+    gather_facts: no
     roles:
       - node_exporter
       - nginx
@@ -16,6 +17,7 @@
   - name: Mysql and mysql exporter
     hosts: db_servers
     become: yes
+    gather_facts: no
     roles:
       - mysql
       - mysql_exporter
@@ -23,6 +25,7 @@
   - name: Nginx uwsgi and agama 
     hosts: web_servers
     become: yes
+    gather_facts: no
     roles:
       - agama
       - uwsgi
@@ -61,3 +64,15 @@
       - grafana
     tags:
       - g
+
+  - name: Influxdb
+    hosts: influxdb
+    become: yes
+    gather_facts: no
+    roles:
+      - influxdb
+      - pinger
+      - rsyslog
+      - influxdb_exporter
+    tags:
+      - i

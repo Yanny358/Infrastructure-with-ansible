@@ -1,0 +1,19 @@
+- name: Download InfluxDB stats exporter
+  get_url:
+    url: https://github.com/carlpett/influxdb_stats_exporter/releases/download/v0.1.1/influx_stats_exporter_linux_amd64
+    dest: /usr/local/bin/prometheus-influxdb-stats-exporter
+    mode: '0777'
+
+- name: InfluxDB stats exporter service
+  ansible.builtin.template:
+    src: prometheus-influxdb-stats-exporter.service
+    dest: /etc/systemd/system/prometheus-influxdb-stats-exporter.service
+  notify:
+    - reload systemd
+    - restart prometheus-influxdb-stats-exporter
+
+- name: Enable prometheus-influxdb-stats-exporter
+  ansible.builtin.service:
+    name: prometheus-influxdb-stats-exporter
+    state: started
+    enabled: yes

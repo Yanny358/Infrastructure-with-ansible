@@ -11,6 +11,13 @@
   apt: 
     pkg:
       - grafana
+  
+
+- name: Enable grafana
+  ansible.builtin.service:
+    name: grafana-server
+    state: started
+    enabled: yes
   notify: Reset password
 
 - name: Reconfigure Grafana
@@ -19,17 +26,35 @@
     dest: /etc/grafana/grafana.ini
   notify: Restart grafana
 
-- name: Datasource Grafana
+- name: Datasource Grafana prometheus
   ansible.builtin.template:
     src: sample.yaml
     dest: /etc/grafana/provisioning/datasources/sample.yaml
   notify: Restart grafana
 
+- name: Datasource Grafana latency
+  ansible.builtin.template:
+    src: latency.yaml
+    dest: /etc/grafana/provisioning/datasources/latency.yaml
+  notify: Restart grafana
 
-- name: Dashboard Grafana
+- name: Datasource Grafana syslog
+  ansible.builtin.template:
+    src: rsyslog.yaml
+    dest: /etc/grafana/provisioning/datasources/rsyslog.yaml
+  notify: Restart grafana
+
+
+- name: Dashboard Grafana main
   ansible.builtin.template:
     src: main.yaml
     dest: /etc/grafana/provisioning/dashboards/sample.yaml
+  notify: Restart grafana
+
+- name: Dashboard Grafana syslog
+  ansible.builtin.template:
+    src: syslog_dashboard.yaml
+    dest: /etc/grafana/provisioning/dashboards/syslog_dashboard.yaml
   notify: Restart grafana
 
 - name: Create directory
@@ -42,11 +67,11 @@
     src: Main.json
     dest: /var/lib/grafana/dashboards/main.json
   notify: Restart grafana
+
+- name: Syslog dashboard
+  ansible.builtin.copy:
+    src: syslog.json
+    dest: /var/lib/grafana/dashboards/syslog.json
+  notify: Restart grafana
     
   
-
-- name: Enable grafana
-  ansible.builtin.service:
-    name: grafana-server
-    state: started
-    enabled: yes
