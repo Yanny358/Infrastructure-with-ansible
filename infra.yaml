@@ -4,6 +4,9 @@
     become: yes
     roles:
       - init
+      - backup
+    tags:
+      - b
 
   - name: Node exporter and nginx exporter
     hosts: all
