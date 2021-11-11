@@ -25,22 +25,22 @@ Backup for InfluxDB will be done every week (7 days) since it is not as critical
 ## Versioning and retention
 
 ### MySQL (User data)
-Backup once a week - every Monday, 2:00 AM EEST, while incremental backups will happen every day at 2:00 AM EEST
+Backup once a week - every Sunday, 23:00  UTC, while incremental backups will happen every day at 23:00  UTC
 
-Full backups will be stored for 3 weeks, while only last seven (7) incremental backups will be retained.
+Full backups will be stored for 3 weeks, while only last 7 incremental backups will be stored.
 
 
-### InfluxDB
-InfluxDB  backups will be made every week at the same time as user data backups - Monday 2:00 AM EEST - each backup will be retained for 2 weeks.
+### InfluxDB (System data)
+InfluxDB  backups will be made every week at the same time as user data backups - Sunday 23:00  UTC - each backup will be stored for 2 weeks.
 
 ### Ansible repository
 The repository is powered by git, so every version of the repository is going to be available with no time constraint.
 
 ## Usability checks
-To ensure the validity of data, on a machine separate from production, MySQL and InfluxDB will be deployed to virtual machines and their functionality will be verified.
+To ensure the validity of data, on a machine separate from production, MySQL and InfluxDB will be deployed  and their functionality will be verified.
 
 ## Restoration criteria
-Upon infrastructure  error, first the correctness of configuration and operability of services should be insured, after which all the possible errors should go through troubleshooting.
+If infrastructure has an error, first the correctness of configuration and operability of services should be verified, after which all the possible errors should go through troubleshooting.
 
 If troubleshooting don't produce any success, restoration from backups will be performed.
 
