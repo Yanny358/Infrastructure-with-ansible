@@ -1,4 +1,13 @@
 ---
+
+  - name: debug
+    hosts: all
+    become: yes
+    roles:
+      - debug
+    tags:
+      - d
+
   - name: init
     hosts: all
     become: yes
@@ -25,6 +34,8 @@
       - mysql
       - mysql_exporter
       - mysql_backup
+    tags:
+      - m
 
   - name: Nginx uwsgi and agama 
     hosts: web_servers

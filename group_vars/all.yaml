@@ -1,4 +1,4 @@
-mysql_host: Yanny358-2.iptv.cs
+mysql_host: Yanny358-1
 mysql_database: agama
 mysql_user: agama
 mysql_password: !vault |
@@ -8,6 +8,15 @@ mysql_password: !vault |
           35393862643135633330383664323738313739386261313864346461353462393138613736653335
           6564383763303664320a626363306537306164306530313936623338666634633132353538643438
           3939
+
+mysql_replication_user: replication
+mysql_replication_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          63633833626262336433323831613733353863366239656439653164336638373563653138356532
+          6235653935623335346334363835643736663964373266640a643764363332646164326665646134
+          31306661633139346364616262363631353034386264636362393036656331653162333038303636
+          3330386363623763620a333531636631363866666237636166636264363433376333383065383337
+          3632
 
 mysql_exporter_user: mysql_exporter
 mysql_exporter_pass: !vault |
@@ -35,3 +44,4 @@ localhost: 127.0.0.0/8
 domain: iptv.cs
 backup_server: 192.168.42.156
 backup_server_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
+node_id: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'].split('.')[-1] }}"

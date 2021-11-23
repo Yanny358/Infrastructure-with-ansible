@@ -33,6 +33,12 @@
     seconds: 10
   when: prom_exporter_installed.changed
 
+- name: Configure MySQL exporter slave
+  ansible.builtin.template:
+    src: prometheus-mysqld-exporter
+    dest: /etc/default/prometheus-mysqld-exporter
+  notify: Restart MySQL exporter
+
 - name: Enable mysql_exporter
   ansible.builtin.service:
     name: prometheus-mysqld-exporter
