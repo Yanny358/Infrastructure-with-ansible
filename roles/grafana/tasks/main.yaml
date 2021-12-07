@@ -18,7 +18,7 @@
     name: grafana-server
     state: started
     enabled: yes
-  notify: Reset password
+  
 
 - name: Reconfigure Grafana
   ansible.builtin.template:

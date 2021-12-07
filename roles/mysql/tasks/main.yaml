@@ -63,6 +63,7 @@
     - Reset MySQL replica
   tags: mx
 
+#SQL server has to be restarted after uploading override.cnf but before setting up replication.
 - name: Flush handlers
   meta: flush_handlers
 

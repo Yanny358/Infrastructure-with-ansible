@@ -3,11 +3,6 @@
   apt:
     update_cache: yes
 
-- name: Reset password
-  shell: |
-    sleep 30
-    grafana-cli admin reset-admin-password {{grafana_pass}}
-
 - name: Restart grafana
   ansible.builtin.service:
     name: grafana-server
