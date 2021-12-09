@@ -17,6 +17,15 @@
     tags:
       - b
 
+  - name: Docker
+    hosts: docker
+    become: yes
+    gather_facts: no
+    roles:
+      - docker
+    tags:
+      - d
+
   - name: Node exporter and nginx exporter
     hosts: all
     become: yes
@@ -37,13 +46,12 @@
     tags:
       - m
 
-  - name: Nginx uwsgi and agama 
+  - name: Nginx and agama 
     hosts: web_servers
     become: yes
     gather_facts: no
     roles:
       - agama
-      - uwsgi
       - nginx
     
       
@@ -92,3 +100,5 @@
       - influxdb_backup
     tags:
       - i
+
+  

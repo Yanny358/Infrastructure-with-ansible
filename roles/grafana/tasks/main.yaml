@@ -1,83 +1,75 @@
-- name: Add an Apt signing key
-  ansible.builtin.apt_key:
-    url: https://packages.grafana.com/gpg.key
+- name: Grafana directory
+  ansible.builtin.file:
+    name: /opt/grafana
+    state: directory
 
-- name: Add specified repository into sources list
-  ansible.builtin.apt_repository:
-    repo: deb https://packages.grafana.com/oss/deb stable main
-  notify: Update apt packages
-
-- name: Install grafana
-  apt: 
-    pkg:
-      - grafana
-  
-
-- name: Enable grafana
-  ansible.builtin.service:
-    name: grafana-server
-    state: started
-    enabled: yes
-  
-
-- name: Reconfigure Grafana
+- name: Grafana configuration
   ansible.builtin.template:
     src: grafana.ini.j2
-    dest: /etc/grafana/grafana.ini
-  notify: Restart grafana
+    dest: /opt/grafana/grafana.ini
+  no_log: yes
+  
+
+- name: Create directory for dashboard and datasources
+  ansible.builtin.file:
+    path: /opt/grafana/provisioning/{{ item }}
+    state: directory
+    recurse: yes
+  loop:
+    - dashboards
+    - datasources
 
 - name: Datasource Grafana prometheus
   ansible.builtin.template:
     src: sample.yaml
-    dest: /etc/grafana/provisioning/datasources/sample.yaml
-  notify: Restart grafana
+    dest: /opt/grafana/provisioning/datasources/sample.yaml
+  
 
 - name: Datasource Grafana latency
   ansible.builtin.template:
     src: latency.yaml
-    dest: /etc/grafana/provisioning/datasources/latency.yaml
-  notify: Restart grafana
+    dest: /opt/grafana/provisioning/datasources/latency.yaml
+
 
 - name: Datasource Grafana syslog
   ansible.builtin.template:
     src: rsyslog.yaml
-    dest: /etc/grafana/provisioning/datasources/rsyslog.yaml
-  notify: Restart grafana
+    dest: /opt/grafana/provisioning/datasources/rsyslog.yaml
+ 
 
 
 - name: Dashboard Grafana main
   ansible.builtin.template:
     src: main.yaml
-    dest: /etc/grafana/provisioning/dashboards/sample.yaml
-  notify: Restart grafana
+    dest: /opt/grafana/provisioning/dashboards/sample.yaml
+
 
 - name: Dashboard Grafana syslog
   ansible.builtin.template:
     src: syslog_dashboard.yaml
-    dest: /etc/grafana/provisioning/dashboards/syslog_dashboard.yaml
-  notify: Restart grafana
+    dest: /opt/grafana/provisioning/dashboards/syslog_dashboard.yaml
 
-- name: Create directory
-  ansible.builtin.file:
-    path: /var/lib/grafana/dashboards
-    state: directory
 
 - name: Main dashboard
   ansible.builtin.copy:
-    src: Main.json
-    dest: /var/lib/grafana/dashboards/main.json
-  notify: Restart grafana
+    src: main.json
+    dest: /opt/grafana/provisioning/dashboards/main.json
 
 - name: Syslog dashboard
   ansible.builtin.copy:
     src: syslog.json
-    dest: /var/lib/grafana/dashboards/syslog.json
-  notify: Restart grafana
+    dest: /opt/grafana/provisioning/dashboards/syslog.json
 
 - name: MySQL dashboard
   ansible.builtin.copy:
     src: mysql.json
-    dest: /var/lib/grafana/dashboards/mysql.json
-  notify: Restart grafana
-    
+    dest: /opt/grafana/provisioning/dashboards/mysql.json
   
+
+- name: Grafana docker container
+  community.docker.docker_container:
+    container_default_behavior: no_defaults
+    name: grafana
+    image: grafana/grafana
+    published_ports: "{{ grafana_port }}:3000"
+    volumes: /opt/grafana:/etc/grafana
