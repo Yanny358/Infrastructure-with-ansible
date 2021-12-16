@@ -24,3 +24,5 @@
       AGAMA_DATABASE_URI=mysql+pymysql://{{mysql_user}}:{{mysql_password}}@{{mysql_host}}/{{mysql_database}}
     published_ports: "8001:8000"
     volumes: /opt/grafana:/etc/grafana
+    restart_policy: always
+  notify: Restart docker

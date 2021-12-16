@@ -14,17 +14,10 @@
     roles:
       - init
       - backup
+      - iptables
     tags:
       - b
 
-  - name: Docker
-    hosts: docker
-    become: yes
-    gather_facts: no
-    roles:
-      - docker
-    tags:
-      - d
 
   - name: Node exporter and nginx exporter
     hosts: all
@@ -46,13 +39,22 @@
     tags:
       - m
 
-  - name: Nginx and agama 
+  - name: Docker
+    hosts: docker
+    become: yes
+    gather_facts: no
+    roles:
+      - docker
+    tags:
+      - d
+
+  - name: agama 
     hosts: web_servers
     become: yes
     gather_facts: no
     roles:
       - agama
-      - nginx
+      
     
       
   - name: Bind9 and bind exporters
