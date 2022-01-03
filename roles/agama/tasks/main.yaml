@@ -25,4 +25,3 @@
     published_ports: "8001:8000"
     volumes: /opt/grafana:/etc/grafana
     restart_policy: always
-  notify: Restart docker

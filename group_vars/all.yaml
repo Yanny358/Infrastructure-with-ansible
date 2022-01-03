@@ -1,4 +1,4 @@
-mysql_host: Yanny358-1
+mysql_host: Yanny358-2
 mysql_database: agama
 mysql_user: agama
 mysql_password: !vault |

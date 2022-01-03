@@ -17,6 +17,7 @@
   notify: 
     - Restart Prometheus
     - Restart nginx
+    - Restart docker
 
 - name: start prometheus
   ansible.builtin.service:
