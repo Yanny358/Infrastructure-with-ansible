@@ -49,11 +49,13 @@
       - d
 
   - name: agama 
-    hosts: web_servers
+    hosts: docker
     become: yes
     gather_facts: no
     roles:
       - agama
+    tags:
+      - a
       
     
       
@@ -102,5 +104,25 @@
       - influxdb_backup
     tags:
       - i
+
+  - name: Haproxy
+    hosts: haproxy
+    become: yes
+    gather_facts: no
+    roles:
+      - haproxy
+      - haproxy_exporter
+    tags:
+      - h
+
+  - name: Keepalived
+    hosts: haproxy
+    become: yes
+    gather_facts: yes
+    roles:
+      - keepalived
+      #- keepalived_exporter
+    tags:
+      - h
 
   

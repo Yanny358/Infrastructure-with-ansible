@@ -1,0 +1,23 @@
+- name: Install keepalived
+  apt: 
+    name: keepalived
+
+- name: Copy file ha88.j2
+  ansible.builtin.template:
+    src: ha88.j2
+    dest: /usr/local/bin/ha88
+    mode: 755
+  
+
+- name: Copy file keepalived.conf.j2
+  ansible.builtin.template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+  notify: restart keepalived, haproxy and docker
+  
+
+- name: start keepalived
+  ansible.builtin.service:
+    name: keepalived
+    state: started
+    enabled: yes

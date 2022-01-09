@@ -1,0 +1,9 @@
+- name: restart keepalived and haproxy
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - haproxy
+    - keepalived
+    - docker
+

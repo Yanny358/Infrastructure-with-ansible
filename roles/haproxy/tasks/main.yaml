@@ -1,0 +1,15 @@
+- name: Install haproxy
+  apt: 
+    name: haproxy
+
+- name: Copy file 
+  ansible.builtin.template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify: restart haproxy
+
+- name: start haproxy
+  ansible.builtin.service:
+    name: haproxy
+    state: started
+    enabled: yes

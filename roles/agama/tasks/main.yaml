@@ -15,7 +15,7 @@
     build:
       path: /opt/agama
 
-- name: Agama docker container
+- name: Agama docker container 1
   community.docker.docker_container:
     container_default_behavior: no_defaults
     name: agama
@@ -25,3 +25,16 @@
     published_ports: "8001:8000"
     volumes: /opt/grafana:/etc/grafana
     restart_policy: always
+
+- name: Agama docker container 2
+  community.docker.docker_container:
+    container_default_behavior: no_defaults
+    name: agama2
+    image: agama
+    env:
+      AGAMA_DATABASE_URI=mysql+pymysql://{{mysql_user}}:{{mysql_password}}@{{mysql_host}}/{{mysql_database}}
+    published_ports: "8002:8000"
+    volumes: /opt/grafana:/etc/grafana
+    restart_policy: always
+
+
