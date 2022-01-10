@@ -38,13 +38,13 @@
  
 
 
-- name: Dashboard Grafana main
+- name: Dashboard Grafana main #
   ansible.builtin.template:
     src: main.yaml
     dest: /opt/grafana/provisioning/dashboards/sample.yaml
 
 
-- name: Dashboard Grafana syslog
+- name: Dashboard Grafana syslog #
   ansible.builtin.template:
     src: syslog_dashboard.yaml
     dest: /opt/grafana/provisioning/dashboards/syslog_dashboard.yaml

@@ -1,4 +1,4 @@
-- name: restart keepalived and haproxy
+- name: restart keepalived, haproxy and docker
   ansible.builtin.service:
     name: "{{ item }}"
     state: restarted

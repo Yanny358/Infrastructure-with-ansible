@@ -6,7 +6,7 @@
     roles:
       - debug
     tags:
-      - d
+      - db
 
   - name: init
     hosts: all
@@ -121,8 +121,8 @@
     gather_facts: yes
     roles:
       - keepalived
-      #- keepalived_exporter
+      - keepalived_exporter
     tags:
-      - h
+      - k
 
   
