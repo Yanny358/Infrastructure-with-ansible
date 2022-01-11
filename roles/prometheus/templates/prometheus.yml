@@ -22,22 +22,22 @@ scrape_configs:
   - job_name: bind9
     static_configs:
       - targets:
-        {% for vm in groups['dns_servers'] %}
-        - {{ vm }}:9119
+        {% for vm in range(groups['dns_servers']|length) %}
+        - ns{{ vm+1 }}:9119
         {% endfor %}
 
   - job_name: mysql
     static_configs:
       - targets:
-        {% for vm in groups['db_servers'] %}
-        - {{ vm }}:9104
+        {% for vm in range(groups['db_servers']|length) %}
+        - mysql{{ vm+1 }}:9104
         {% endfor %}
 
   - job_name: nginx
     static_configs:
       - targets:
-        {% for vm in groups['all'] %}
-        - {{ vm }}:9113
+        {% for vm in range(groups['web_servers']|length) %}
+        - web{{ vm+1 }}:9113
         {% endfor %}
 
   - job_name: influx
@@ -50,13 +50,13 @@ scrape_configs:
   - job_name: haproxy
     static_configs:
       - targets:
-        {% for vm in groups['haproxy'] %}
-        - {{ vm }}:9101
+        {% for vm in range(groups['haproxy']|length) %}
+        - lb{{ vm+1 }}:9101
         {% endfor %}
 
   - job_name: keepalived
     static_configs:
       - targets:
-        {% for vm in groups['haproxy'] %}
-        - {{ vm }}:9165
+        {% for vm in range(groups['haproxy']|length) %}
+        - lb{{ vm+1 }}:9165
         {% endfor %}

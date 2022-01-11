@@ -25,9 +25,12 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-listen agama
+listen iptvs.cs
     bind *:88
     stats enable
     stats uri /stats
-    server s1 Yanny358-1:8001 check
-    server s2 Yanny358-1:8002 check
+    {% for vm in range(groups['haproxy']|length) %}
+    server lb{{ vm+1 }}-docker1 lb{{ vm+1 }}:{{ agama_ports["agama1"] }} check
+   server lb{{ vm+1 }}-docker2 lb{{ vm+1 }}:{{ agama_ports["agama2"] }} check
+    {% endfor %}
+	

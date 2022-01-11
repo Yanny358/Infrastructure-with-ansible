@@ -1,12 +1,8 @@
 - name: reload systemd
   shell: systemctl daemon-reload
 
-- name: restart keepalived, haproxy and keepalived-exporter
+- name: restart keepalived-exporter
   ansible.builtin.service:
-    name: "{{ item }}"
+    name: keepalived-exporter
     state: restarted
-  loop:
-    - haproxy
-    - keepalived
-    - keepalived-exporter
 

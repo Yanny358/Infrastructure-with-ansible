@@ -1,7 +1,9 @@
-Yanny358-1 ansible_host=193.40.156.67 ansible_port=16322 ansible_ssh_user=ubuntu
-Yanny358-2 ansible_host=193.40.156.67 ansible_port=1822 ansible_ssh_user=ubuntu
+Yanny358-1 ansible_host=193.40.156.67 ansible_port=9422 ansible_ssh_user=ubuntu
+Yanny358-2 ansible_host=193.40.156.67 ansible_port=18522 ansible_ssh_user=ubuntu
 
-
+[web_servers]
+Yanny358-1
+Yanny358-2
 
 [prometheus]
 Yanny358-1
@@ -10,8 +12,15 @@ Yanny358-1
 Yanny358-1
 Yanny358-2
 
-[dns_servers]
+[dns_servers:children]
+dns_master
+dns_slave
+
+[dns_master]
 Yanny358-2
+
+[dns_slave]
+Yanny358-1
 
 [grafana]
 Yanny358-2

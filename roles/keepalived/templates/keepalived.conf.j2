@@ -9,7 +9,7 @@ global_defs {
     script_user keepalived_script
 }
 
-vrrp_instance agama {             
+vrrp_instance agama1 {             
     interface ens3
     virtual_router_id 1
     {% if inventory_hostname == 'Yanny358-1' %}

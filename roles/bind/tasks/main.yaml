@@ -2,23 +2,67 @@
   apt:
     pkg:
     - bind9
+    - python3-dnspython
+
+
+- name: Copy file db
+  when: inventory_hostname in groups['dns_master']
+  ansible.builtin.template:
+    src: db.iptv.cs.j2
+    dest: /var/cache/bind/db.iptv.cs
+    force: no
+  notify: rndc reload
+
+- name: Copy file db reverse
+  when: inventory_hostname in groups['dns_master']
+  ansible.builtin.template:
+    src: db.reverse.j2
+    dest: /var/cache/bind/db.reverse
+    force: no
+  notify: restart bind9
 
 - name: Copy file options
   ansible.builtin.template:
     src: named.conf.options.j2
     dest: /etc/bind/named.conf.options
+  no_log: true
   notify: restart bind9
-
-- name: Copy file db
-  ansible.builtin.template:
-    src: db.iptv.j2
-    dest: /var/cache/bind/db.iptv
-  notify: rndc reload
 
 - name: Copy file local
   ansible.builtin.template:
     src: named.conf.local.j2
     dest: /etc/bind/named.conf.local
+  notify: restart bind9
+
+- name: Flush handlers
+  meta: flush_handlers 
+
+- name: nsupdate A records
+  when: inventory_hostname in groups['dns_master']
+  community.general.nsupdate:
+    key_name: "nsupdate.key"
+    key_algorithm: "hmac-sha256"
+    key_secret: "{{ nsupdate_key }}"
+    server: "localhost"
+    zone: "{{ domain }}"
+    type: "A"
+    record: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop: "{{ dns_a_records | dict2items }}"
+  notify: restart bind9
+
+- name: nsupdate CNAME records
+  when: inventory_hostname in groups['dns_master']
+  community.general.nsupdate:
+    key_name: "nsupdate.key"
+    key_algorithm: "hmac-sha256"
+    key_secret: "{{ nsupdate_key }}"
+    server: "localhost"
+    zone: "{{ domain }}"
+    type: "CNAME"
+    record: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop: "{{ dns_cname_records | dict2items }}"
   notify: restart bind9
 
 

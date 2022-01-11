@@ -10,7 +10,7 @@ datasources:
    access: proxy
 
 #   # <string> url
-   url: http://Yanny358-1:8086
+   url: http://influxdb:8086
    database: latency
    isDefault: false
 #   # <bool> allow users to edit datasources from the UI.

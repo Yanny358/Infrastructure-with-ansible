@@ -10,7 +10,7 @@
     dest: /etc/systemd/system/keepalived-exporter.service
   notify: 
     - reload systemd
-    - restart keepalived, haproxy and keepalived-exporter
+    - restart keepalived-exporter
 
 
 - name: Start service keepalived-exporter, if not started

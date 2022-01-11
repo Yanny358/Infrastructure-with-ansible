@@ -18,6 +18,21 @@
     tags:
       - b
 
+  - name: Bind9 and bind exporters
+    hosts: dns_servers
+    become: yes
+    gather_facts: no
+    roles:
+      - bind
+      - bind_exporter
+
+  - name: DNS Resolve
+    hosts: all
+    become: yes
+    gather_facts: no
+    roles:
+      - dns_resolve
+
 
   - name: Node exporter and nginx exporter
     hosts: all
@@ -58,21 +73,6 @@
       - a
       
     
-      
-  - name: Bind9 and bind exporters
-    hosts: dns_servers
-    become: yes
-    gather_facts: no
-    roles:
-      - bind
-      - bind_exporter
-
-  - name: DNS Resolve
-    hosts: all
-    become: yes
-    gather_facts: no
-    roles:
-      - dns_resolve
 
   - name: Prometheus
     hosts: prometheus
