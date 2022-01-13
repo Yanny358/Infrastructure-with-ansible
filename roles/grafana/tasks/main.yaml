@@ -24,26 +24,17 @@
     src: sample.yaml
     dest: /opt/grafana/provisioning/datasources/sample.yaml
   
-
 - name: Datasource Grafana latency
   ansible.builtin.template:
     src: latency.yaml
     dest: /opt/grafana/provisioning/datasources/latency.yaml
-
-
-- name: Datasource Grafana syslog
-  ansible.builtin.template:
-    src: rsyslog.yaml
-    dest: /opt/grafana/provisioning/datasources/rsyslog.yaml
  
 
 
-- name: Dashboard Grafana main #
+- name: Dashboard Grafana main 
   ansible.builtin.template:
     src: main.yaml
     dest: /opt/grafana/provisioning/dashboards/sample.yaml
-
-
 
 
 - name: Main dashboard

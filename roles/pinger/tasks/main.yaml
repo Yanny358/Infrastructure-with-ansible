@@ -17,11 +17,14 @@
   ansible.builtin.template:
     src: pinger.conf.j2
     dest: /etc/pinger/pinger.conf
+  notify:
+    - restart pinger
 
 - name: pinger script
   ansible.builtin.template:
     src: pinger.sh
     dest: /usr/local/bin/pinger
+    owner: pinger
     mode: '0777'
 
 - name: pinger service

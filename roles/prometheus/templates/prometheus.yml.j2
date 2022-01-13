@@ -1,5 +1,3 @@
-# Sample config for Prometheus.
-
 global:
   scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
@@ -8,6 +6,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
     scrape_timeout: 5s
+    # metrics_path defaults to '/metrics'
     metrics_path: /prometheus/metrics
     static_configs:
       - targets: ['localhost:9090']
@@ -15,48 +14,46 @@ scrape_configs:
   - job_name: linux
     static_configs:
       - targets:
-        {% for vm in groups['all'] %}
+{%for vm in groups['all']%}
         - {{ vm }}:9100
-        {% endfor %}
-
-  - job_name: bind9
-    static_configs:
-      - targets:
-        {% for vm in range(groups['dns_servers']|length) %}
-        - ns{{ vm+1 }}:9119
-        {% endfor %}
+{%endfor%}
 
   - job_name: mysql
     static_configs:
       - targets:
-        {% for vm in range(groups['db_servers']|length) %}
+{%for vm in range(groups['db_servers']|length)%}
         - mysql{{ vm+1 }}:9104
-        {% endfor %}
+{%endfor%}
 
-  - job_name: nginx
+  - job_name: bind
     static_configs:
       - targets:
-        {% for vm in range(groups['web_servers']|length) %}
+{%for vm in range(groups['dns_servers']|length)%}
+        - ns{{ vm+1 }}:9119
+{%endfor%}
+
+  - job_name: nginx 
+    static_configs:
+      - targets:
+{%for vm in range(groups['web_servers']|length)%}
         - web{{ vm+1 }}:9113
-        {% endfor %}
+{%endfor%}
 
-  - job_name: influx
+  - job_name: influxdb
     static_configs:
       - targets:
-        {% for vm in groups['influxdb'] %}
-        - {{ vm }}:9424
-        {% endfor %}
+        - influxdb:9424
 
   - job_name: haproxy
     static_configs:
       - targets:
-        {% for vm in range(groups['haproxy']|length) %}
+{%for vm in range(groups['haproxy']|length)%}
         - lb{{ vm+1 }}:9101
-        {% endfor %}
+{%endfor%}
 
   - job_name: keepalived
     static_configs:
       - targets:
-        {% for vm in range(groups['haproxy']|length) %}
+{%for vm in range(groups['haproxy']|length)%}
         - lb{{ vm+1 }}:9165
-        {% endfor %}
+{%endfor%}

@@ -3,8 +3,10 @@
   ansible.builtin.service:
     name: systemd-resolved
     state: stopped
+    enabled: no
 
 - name: Change DNS configuration file
   ansible.builtin.template:
     src: resolv.conf.j2
     dest: /etc/resolv.conf
+   

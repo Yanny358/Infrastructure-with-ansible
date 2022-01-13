@@ -1,4 +1,4 @@
-mysql_host: mysql2
+mysql_host: "{{ groups['db_servers'][1] }}"
 mysql_database: agama
 mysql_user: agama
 mysql_password: !vault |
@@ -77,6 +77,16 @@ dns_cname_records:
   mysql2: "{{ groups['db_servers'][1] }}"
   ns1: "{{ groups['dns_servers'][0] }}"
   ns2: "{{ groups['dns_servers'][1] }}"
+  ns3: "{{ groups['dns_servers'][2] }}"
   prometheus: "{{ groups['prometheus'][0] }}"
   web1: "{{ groups['web_servers'][0] }}"
   web2: "{{ groups['web_servers'][1] }}"
+  web3: "{{ groups['web_servers'][2] }}"
+
+docker_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          30346638366332613231386663303730616464663138643539396263363663643463666338313331
+          6165636465613661333736646338306461613564376333370a663230623864366430613864666335
+          34353837396264353663666161376138626661363938316233353031373832613633363439653732
+          6432613362343938390a396665363363633439643437383062306235383835373731656565366265
+          6637

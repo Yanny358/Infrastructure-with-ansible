@@ -2,3 +2,4 @@ search {{ domain }}
 {% for slave in groups['dns_slave'] %}
 nameserver {{ hostvars[slave]['ansible_default_ipv4']['address'] }}
 {% endfor %}
+

@@ -16,32 +16,26 @@
       - backup
       - iptables
     tags:
-      - b
+      - ip
 
   - name: Bind9 and bind exporters
     hosts: dns_servers
     become: yes
-    gather_facts: no
+    gather_facts: yes
     roles:
       - bind
       - bind_exporter
+    tags:
+      - b
 
   - name: DNS Resolve
     hosts: all
     become: yes
-    gather_facts: no
+    gather_facts: yes
     roles:
       - dns_resolve
-
-
-  - name: Node exporter and nginx exporter
-    hosts: all
-    become: yes
-    gather_facts: no
-    roles:
-      - node_exporter
-      - nginx
-      - nginx_exporter
+    tags:
+      - r
 
   - name: Mysql and mysql exporter
     hosts: db_servers
@@ -54,8 +48,20 @@
     tags:
       - m
 
+
+  - name: Node exporter and nginx exporter
+    hosts: web_servers
+    become: yes
+    gather_facts: no
+    roles:
+      - node_exporter
+      - nginx
+      - nginx_exporter
+
+  
+
   - name: Docker
-    hosts: docker
+    hosts: web_servers
     become: yes
     gather_facts: no
     roles:
@@ -64,7 +70,7 @@
       - d
 
   - name: agama 
-    hosts: docker
+    hosts: web_agama
     become: yes
     gather_facts: no
     roles:
@@ -88,6 +94,7 @@
     become: yes
     gather_facts: no
     roles:
+      - docker
       - grafana
     tags:
       - g
@@ -98,12 +105,14 @@
     gather_facts: no
     roles:
       - influxdb
-      - pinger
-      - rsyslog
       - influxdb_exporter
       - influxdb_backup
+      - pinger
+      - rsyslog
     tags:
       - i
+
+  
 
   - name: Haproxy
     hosts: haproxy

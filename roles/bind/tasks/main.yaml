@@ -1,43 +1,43 @@
-- name: Install bind9
+- name: Install package "bind9"
   apt:
-    pkg:
-    - bind9
-    - python3-dnspython
+    name: 
+      - bind9
+      - python3-dnspython
 
-
-- name: Copy file db
-  when: inventory_hostname in groups['dns_master']
-  ansible.builtin.template:
-    src: db.iptv.cs.j2
-    dest: /var/cache/bind/db.iptv.cs
-    force: no
-  notify: rndc reload
-
-- name: Copy file db reverse
-  when: inventory_hostname in groups['dns_master']
-  ansible.builtin.template:
-    src: db.reverse.j2
-    dest: /var/cache/bind/db.reverse
-    force: no
-  notify: restart bind9
-
-- name: Copy file options
+- name: Copy new named.conf.options
   ansible.builtin.template:
     src: named.conf.options.j2
     dest: /etc/bind/named.conf.options
   no_log: true
   notify: restart bind9
 
-- name: Copy file local
+- name: Copy db.iptv.cs
+  when: inventory_hostname in groups['dns_master']
+  ansible.builtin.template:
+    src: db.iptv.cs.j2
+    dest: /var/cache/bind/db.{{ domain }}
+    force: no
+  notify: rndc reload
+
+- name: Copy db.reverse
+  when: inventory_hostname in groups['dns_master']
+  ansible.builtin.template:
+    src: db.reverse.j2
+    dest: /var/cache/bind/db.reverse
+    force: no
+  notify: rndc reload
+
+
+- name: Copy new named.conf.local
   ansible.builtin.template:
     src: named.conf.local.j2
     dest: /etc/bind/named.conf.local
   notify: restart bind9
 
-- name: Flush handlers
+- name: Flush
   meta: flush_handlers 
 
-- name: nsupdate A records
+- name: Nsupdate A records
   when: inventory_hostname in groups['dns_master']
   community.general.nsupdate:
     key_name: "nsupdate.key"
@@ -51,7 +51,7 @@
   loop: "{{ dns_a_records | dict2items }}"
   notify: restart bind9
 
-- name: nsupdate CNAME records
+- name: Nsupdate CNAME records
   when: inventory_hostname in groups['dns_master']
   community.general.nsupdate:
     key_name: "nsupdate.key"
@@ -65,8 +65,7 @@
   loop: "{{ dns_cname_records | dict2items }}"
   notify: restart bind9
 
-
-- name: start bind9
+- name: Service bind
   ansible.builtin.service:
     name: bind9
     state: started

@@ -1,14 +1,31 @@
-Yanny358-1 ansible_host=193.40.156.67 ansible_port=9422 ansible_ssh_user=ubuntu
-Yanny358-2 ansible_host=193.40.156.67 ansible_port=18522 ansible_ssh_user=ubuntu
+Yanny358-1 ansible_host=193.40.156.67 ansible_port=17022 ansible_ssh_user=ubuntu
+Yanny358-2 ansible_host=193.40.156.67 ansible_port=16322 ansible_ssh_user=ubuntu
+Yanny358-3 ansible_host=193.40.156.67 ansible_port=7222 ansible_ssh_user=ubuntu
 
-[web_servers]
+
+[web_agama]
 Yanny358-1
 Yanny358-2
 
+[web_frontend]
+Yanny358-3
+
 [prometheus]
-Yanny358-1
+Yanny358-3
+
+[web_servers:children]
+web_agama
+web_frontend
 
 [db_servers]
+Yanny358-1
+Yanny358-2
+
+
+[dns_master]
+Yanny358-3
+
+[dns_slave]
 Yanny358-1
 Yanny358-2
 
@@ -16,21 +33,12 @@ Yanny358-2
 dns_master
 dns_slave
 
-[dns_master]
-Yanny358-2
-
-[dns_slave]
-Yanny358-1
-
 [grafana]
-Yanny358-2
+Yanny358-3
 
 [influxdb]
-Yanny358-1
+Yanny358-3
 
-[docker]
-Yanny358-1
-Yanny358-2
 
 [haproxy]
 Yanny358-1

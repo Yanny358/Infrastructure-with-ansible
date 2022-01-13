@@ -22,7 +22,7 @@
   ansible.builtin.template:
     src: keepalived.conf.j2
     dest: /etc/keepalived/keepalived.conf
-  notify: restart keepalived, haproxy and docker
+  notify: restart keepalived, haproxy
   
 
 - name: start keepalived
