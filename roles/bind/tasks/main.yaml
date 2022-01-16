@@ -19,6 +19,14 @@
     force: no
   notify: rndc reload
 
+- name: Copy db.iptv_slave.cs
+  when: inventory_hostname in groups['dns_slave']
+  ansible.builtin.template:
+    src: db.iptv_slave.cs.j2
+    dest: /var/cache/bind/db.{{ domain }}
+    force: no
+    
+
 - name: Copy db.reverse
   when: inventory_hostname in groups['dns_master']
   ansible.builtin.template:

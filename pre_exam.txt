@@ -1,4 +1,4 @@
-Thu Jan 13 18:30:43 EET 2022
+Sun Jan 16 14:53:05 EET 2022
 + hostname
 Jaans-MBP
 + ansible-playbook infra.yaml --diff
@@ -6,9 +6,9 @@ Jaans-MBP
 PLAY [debug] *******************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [Yanny358-1]
 ok: [Yanny358-3]
 ok: [Yanny358-2]
-ok: [Yanny358-1]
 
 TASK [debug : Debug] ***********************************************************
 ok: [Yanny358-3] => {
@@ -25,23 +25,23 @@ PLAY [init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [init : Update APT cache] *************************************************
 changed: [Yanny358-2]
-changed: [Yanny358-1]
 changed: [Yanny358-3]
+changed: [Yanny358-1]
 
 TASK [backup : Create user backup] *********************************************
-changed: [Yanny358-3]
-changed: [Yanny358-1]
 changed: [Yanny358-2]
+changed: [Yanny358-1]
+changed: [Yanny358-3]
 
 TASK [backup : Create  SSH key for user backup] ********************************
+changed: [Yanny358-2]
 changed: [Yanny358-1]
 changed: [Yanny358-3]
-changed: [Yanny358-2]
 
 TASK [backup : Create directory] ***********************************************
 --- before
@@ -71,7 +71,7 @@ changed: [Yanny358-3]
 +    "state": "directory"
  }
 
-changed: [Yanny358-1]
+changed: [Yanny358-2]
 --- before
 +++ after
 @@ -1,6 +1,6 @@
@@ -85,7 +85,7 @@ changed: [Yanny358-1]
 +    "state": "directory"
  }
 
-changed: [Yanny358-2]
+changed: [Yanny358-1]
 
 TASK [backup : Install duplicity] **********************************************
 The following additional packages will be installed:
@@ -124,26 +124,26 @@ changed: [Yanny358-1]
 
 TASK [backup : Create a file] **************************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp9v9uypf_/known_hosts
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpq1hn6ld5/known_hosts
+@@ -0,0 +1,2 @@
++backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
++backup.iptv.cs ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
+
+changed: [Yanny358-1]
+--- before
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpqbemo4fv/known_hosts
 @@ -0,0 +1,2 @@
 +backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 +backup.iptv.cs ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 
 changed: [Yanny358-3]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpkqca8hib/known_hosts
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp5etwg0gu/known_hosts
 @@ -0,0 +1,2 @@
 +backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 +backup.iptv.cs ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 
 changed: [Yanny358-2]
---- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpipm5cjjb/known_hosts
-@@ -0,0 +1,2 @@
-+backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
-+backup.iptv.cs ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
-
-changed: [Yanny358-1]
 
 TASK [iptables : Fix ssl bug for docker] ***************************************
 --- before
@@ -205,9 +205,9 @@ mistake may lead the ansible controller to loose access to the hosts and never
 regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
-changed: [Yanny358-3]
 changed: [Yanny358-1]
 changed: [Yanny358-2]
+changed: [Yanny358-3]
 
 TASK [iptables : Install iptables-persistent] **********************************
 The following additional packages will be installed:
@@ -215,13 +215,13 @@ The following additional packages will be installed:
 The following NEW packages will be installed:
   iptables-persistent netfilter-persistent
 0 upgraded, 2 newly installed, 0 to remove and 142 not upgraded.
-changed: [Yanny358-1]
+changed: [Yanny358-2]
 The following additional packages will be installed:
   netfilter-persistent
 The following NEW packages will be installed:
   iptables-persistent netfilter-persistent
 0 upgraded, 2 newly installed, 0 to remove and 142 not upgraded.
-changed: [Yanny358-2]
+changed: [Yanny358-1]
 The following additional packages will be installed:
   netfilter-persistent
 The following NEW packages will be installed:
@@ -233,7 +233,7 @@ TASK [iptables : Saving iptables rules over reboot] ****************************
 --- before: /etc/iptables/rules.v4
 +++ after: /Users/yannybrown/Desktop/ica0002/roles/iptables/files/iptables.mangle
 @@ -1,17 +1,9 @@
--# Generated by iptables-save v1.8.4 on Thu Jan 13 16:32:24 2022
+-# Generated by iptables-save v1.8.4 on Sun Jan 16 12:54:25 2022
 -*filter
 +*mangle
 +:PREROUTING ACCEPT [0:0]
@@ -243,51 +243,24 @@ TASK [iptables : Saving iptables rules over reboot] ****************************
 +:POSTROUTING ACCEPT [0:0]
 +-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
  COMMIT
--# Completed on Thu Jan 13 16:32:24 2022
--# Generated by iptables-save v1.8.4 on Thu Jan 13 16:32:24 2022
+-# Completed on Sun Jan 16 12:54:25 2022
+-# Generated by iptables-save v1.8.4 on Sun Jan 16 12:54:25 2022
 -*mangle
--:PREROUTING ACCEPT [127:152521]
--:INPUT ACCEPT [127:152521]
+-:PREROUTING ACCEPT [141:153553]
+-:INPUT ACCEPT [141:153553]
 -:FORWARD ACCEPT [0:0]
--:OUTPUT ACCEPT [95:8671]
--:POSTROUTING ACCEPT [95:8671]
+-:OUTPUT ACCEPT [106:9459]
+-:POSTROUTING ACCEPT [106:9459]
 --A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 -COMMIT
--# Completed on Thu Jan 13 16:32:24 2022
-+
-
-changed: [Yanny358-2]
---- before: /etc/iptables/rules.v4
-+++ after: /Users/yannybrown/Desktop/ica0002/roles/iptables/files/iptables.mangle
-@@ -1,17 +1,9 @@
--# Generated by iptables-save v1.8.4 on Thu Jan 13 16:32:25 2022
--*filter
-+*mangle
-+:PREROUTING ACCEPT [0:0]
- :INPUT ACCEPT [0:0]
- :FORWARD ACCEPT [0:0]
- :OUTPUT ACCEPT [0:0]
-+:POSTROUTING ACCEPT [0:0]
-+-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
- COMMIT
--# Completed on Thu Jan 13 16:32:25 2022
--# Generated by iptables-save v1.8.4 on Thu Jan 13 16:32:25 2022
--*mangle
--:PREROUTING ACCEPT [181:155617]
--:INPUT ACCEPT [181:155617]
--:FORWARD ACCEPT [0:0]
--:OUTPUT ACCEPT [120:10187]
--:POSTROUTING ACCEPT [120:10187]
---A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
--COMMIT
--# Completed on Thu Jan 13 16:32:25 2022
+-# Completed on Sun Jan 16 12:54:25 2022
 +
 
 changed: [Yanny358-3]
 --- before: /etc/iptables/rules.v4
 +++ after: /Users/yannybrown/Desktop/ica0002/roles/iptables/files/iptables.mangle
 @@ -1,17 +1,9 @@
--# Generated by iptables-save v1.8.4 on Thu Jan 13 16:32:24 2022
+-# Generated by iptables-save v1.8.4 on Sun Jan 16 12:54:24 2022
 -*filter
 +*mangle
 +:PREROUTING ACCEPT [0:0]
@@ -297,26 +270,53 @@ changed: [Yanny358-3]
 +:POSTROUTING ACCEPT [0:0]
 +-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
  COMMIT
--# Completed on Thu Jan 13 16:32:24 2022
--# Generated by iptables-save v1.8.4 on Thu Jan 13 16:32:24 2022
+-# Completed on Sun Jan 16 12:54:24 2022
+-# Generated by iptables-save v1.8.4 on Sun Jan 16 12:54:24 2022
 -*mangle
--:PREROUTING ACCEPT [183:155433]
--:INPUT ACCEPT [183:155433]
+-:PREROUTING ACCEPT [134:153189]
+-:INPUT ACCEPT [134:153189]
 -:FORWARD ACCEPT [0:0]
--:OUTPUT ACCEPT [123:10127]
--:POSTROUTING ACCEPT [123:10127]
+-:OUTPUT ACCEPT [96:8947]
+-:POSTROUTING ACCEPT [96:8947]
 --A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 -COMMIT
--# Completed on Thu Jan 13 16:32:24 2022
+-# Completed on Sun Jan 16 12:54:24 2022
 +
 
 changed: [Yanny358-1]
+--- before: /etc/iptables/rules.v4
++++ after: /Users/yannybrown/Desktop/ica0002/roles/iptables/files/iptables.mangle
+@@ -1,17 +1,9 @@
+-# Generated by iptables-save v1.8.4 on Sun Jan 16 12:54:24 2022
+-*filter
++*mangle
++:PREROUTING ACCEPT [0:0]
+ :INPUT ACCEPT [0:0]
+ :FORWARD ACCEPT [0:0]
+ :OUTPUT ACCEPT [0:0]
++:POSTROUTING ACCEPT [0:0]
++-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
+ COMMIT
+-# Completed on Sun Jan 16 12:54:24 2022
+-# Generated by iptables-save v1.8.4 on Sun Jan 16 12:54:24 2022
+-*mangle
+-:PREROUTING ACCEPT [181:155329]
+-:INPUT ACCEPT [181:155329]
+-:FORWARD ACCEPT [0:0]
+-:OUTPUT ACCEPT [121:10023]
+-:POSTROUTING ACCEPT [121:10023]
+--A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+-COMMIT
+-# Completed on Sun Jan 16 12:54:24 2022
++
+
+changed: [Yanny358-2]
 
 PLAY [Bind9 and bind exporters] ************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [bind : Install package "bind9"] ******************************************
@@ -329,7 +329,7 @@ The following NEW packages will be installed:
 The following packages will be upgraded:
   bind9-dnsutils bind9-libs
 2 upgraded, 5 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-1]
+changed: [Yanny358-3]
 The following additional packages will be installed:
   bind9-dnsutils bind9-libs bind9-utils dns-root-data python3-ply
 Suggested packages:
@@ -349,18 +349,18 @@ The following NEW packages will be installed:
 The following packages will be upgraded:
   bind9-dnsutils bind9-libs
 2 upgraded, 5 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-3]
+changed: [Yanny358-1]
 
 TASK [bind : Copy new named.conf.options] **************************************
+changed: [Yanny358-3]
 changed: [Yanny358-2]
 changed: [Yanny358-1]
-changed: [Yanny358-3]
 
 TASK [bind : Copy db.iptv.cs] **************************************************
 skipping: [Yanny358-1]
 skipping: [Yanny358-2]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp7q8059c4/db.iptv.cs.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp383wnoow/db.iptv.cs.j2
 @@ -0,0 +1,14 @@
 +$TTL	604800
 +iptv.cs.	IN	SOA	Yanny358-1.iptv.cs. jaan.iptv.cs. (
@@ -373,17 +373,22 @@ skipping: [Yanny358-2]
 +iptv.cs. IN NS Yanny358-3
 +iptv.cs. IN NS Yanny358-1
 +iptv.cs. IN NS Yanny358-2
-+Yanny358-3 IN A 192.168.42.72
-+Yanny358-1 IN A 192.168.42.170
-+Yanny358-2 IN A 192.168.42.163
++Yanny358-3 IN A 192.168.42.60
++Yanny358-1 IN A 192.168.42.83
++Yanny358-2 IN A 192.168.42.98
 
 changed: [Yanny358-3]
+
+TASK [bind : Copy db.iptv_slave.cs] ********************************************
+skipping: [Yanny358-3]
+changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 TASK [bind : Copy db.reverse] **************************************************
 skipping: [Yanny358-1]
 skipping: [Yanny358-2]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp48av28mn/db.reverse.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpox5o9msr/db.reverse.j2
 @@ -0,0 +1,14 @@
 +$TTL    604800
 +42.168.192.in-addr.arpa.       IN      SOA     Yanny358-1.iptv.cs. jaan.iptv.cs. (
@@ -396,15 +401,15 @@ skipping: [Yanny358-2]
 +42.168.192.in-addr.arpa.       IN      NS      Yanny358-3.iptv.cs. 
 +42.168.192.in-addr.arpa.       IN      NS      Yanny358-1.iptv.cs. 
 +42.168.192.in-addr.arpa.       IN      NS      Yanny358-2.iptv.cs. 
-+72 IN PTR Yanny358-3.iptv.cs.
-+170 IN PTR Yanny358-1.iptv.cs.
-+163 IN PTR Yanny358-2.iptv.cs.
++60 IN PTR Yanny358-3.iptv.cs.
++83 IN PTR Yanny358-1.iptv.cs.
++98 IN PTR Yanny358-2.iptv.cs.
 
 changed: [Yanny358-3]
 
 TASK [bind : Copy new named.conf.local] ****************************************
 --- before: /etc/bind/named.conf.local
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpg8z2aswd/named.conf.local.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmptalj37sf/named.conf.local.j2
 @@ -1,8 +1,14 @@
 -//
 -// Do any local configuration here
@@ -429,14 +434,14 @@ TASK [bind : Copy new named.conf.local] ****************************************
 
 changed: [Yanny358-3]
 --- before: /etc/bind/named.conf.local
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpz8358n_9/named.conf.local.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmplmu4qhsu/named.conf.local.j2
 @@ -1,8 +1,15 @@
 -//
 -// Do any local configuration here
 -//
 +zone "iptv.cs" {
 +    type secondary;
-+    masters { 192.168.42.72; };
++    masters { 192.168.42.60; };
 +    file "db.iptv.cs";
 +};
  
@@ -445,24 +450,24 @@ changed: [Yanny358-3]
 -//include "/etc/bind/zones.rfc1918";
 +zone "42.168.192.in-addr.arpa" {
 +    type secondary;
-+    masters { 192.168.42.72; };
++    masters { 192.168.42.60; };
 +    file "db.reverse";
 +};
  
-+server 192.168.42.72 {
++server 192.168.42.60 {
 +    keys { transfer.key; };
 +};
 
 changed: [Yanny358-1]
 --- before: /etc/bind/named.conf.local
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpvt2y0b6e/named.conf.local.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpr3jvcezz/named.conf.local.j2
 @@ -1,8 +1,15 @@
 -//
 -// Do any local configuration here
 -//
 +zone "iptv.cs" {
 +    type secondary;
-+    masters { 192.168.42.72; };
++    masters { 192.168.42.60; };
 +    file "db.iptv.cs";
 +};
  
@@ -471,11 +476,11 @@ changed: [Yanny358-1]
 -//include "/etc/bind/zones.rfc1918";
 +zone "42.168.192.in-addr.arpa" {
 +    type secondary;
-+    masters { 192.168.42.72; };
++    masters { 192.168.42.60; };
 +    file "db.reverse";
 +};
  
-+server 192.168.42.72 {
++server 192.168.42.60 {
 +    keys { transfer.key; };
 +};
 
@@ -484,8 +489,8 @@ changed: [Yanny358-2]
 TASK [bind : Flush] ************************************************************
 
 RUNNING HANDLER [bind : restart bind9] *****************************************
-changed: [Yanny358-1]
 changed: [Yanny358-3]
+changed: [Yanny358-1]
 changed: [Yanny358-2]
 
 RUNNING HANDLER [bind : rndc reload] *******************************************
@@ -502,10 +507,10 @@ skipping: [Yanny358-1] => (item={'key': 'influxdb', 'value': 'Yanny358-3'})
 skipping: [Yanny358-1] => (item={'key': 'lb1', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-1] => (item={'key': 'lb2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-1] => (item={'key': 'mysql1', 'value': 'Yanny358-1'}) 
-skipping: [Yanny358-1] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-2] => (item={'key': 'grafana', 'value': 'Yanny358-3'}) 
-skipping: [Yanny358-1] => (item={'key': 'ns1', 'value': 'Yanny358-3'}) 
+skipping: [Yanny358-1] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-2] => (item={'key': 'influxdb', 'value': 'Yanny358-3'}) 
+skipping: [Yanny358-1] => (item={'key': 'ns1', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-2] => (item={'key': 'lb1', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-1] => (item={'key': 'ns2', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-2] => (item={'key': 'lb2', 'value': 'Yanny358-2'}) 
@@ -546,15 +551,15 @@ TASK [bind_exporter : Install bind exporter] ***********************************
 The following NEW packages will be installed:
   prometheus-bind-exporter
 0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
+changed: [Yanny358-3]
+The following NEW packages will be installed:
+  prometheus-bind-exporter
+0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
 changed: [Yanny358-2]
 The following NEW packages will be installed:
   prometheus-bind-exporter
 0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
 changed: [Yanny358-1]
-The following NEW packages will be installed:
-  prometheus-bind-exporter
-0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-3]
 
 TASK [bind_exporter : Enable bind_exporter] ************************************
 ok: [Yanny358-3]
@@ -567,18 +572,18 @@ changed: [Yanny358-3]
 PLAY [DNS Resolve] *************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [Yanny358-3]
 ok: [Yanny358-1]
 ok: [Yanny358-2]
-ok: [Yanny358-3]
 
 TASK [dns_resolve : Stop Ubuntu systemd-resolved] ******************************
-changed: [Yanny358-2]
 changed: [Yanny358-1]
 changed: [Yanny358-3]
+changed: [Yanny358-2]
 
 TASK [dns_resolve : Change DNS configuration file] *****************************
 --- before: /etc/resolv.conf
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpvfss4gok/resolv.conf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpnb9rsu0n/resolv.conf.j2
 @@ -1,19 +1,4 @@
 -# This file is managed by man:systemd-resolved(8). Do not edit.
 -#
@@ -596,8 +601,8 @@ TASK [dns_resolve : Change DNS configuration file] *****************************
 -# See man:systemd-resolved.service(8) for details about the supported modes of
 -# operation for /etc/resolv.conf.
 +search iptv.cs
-+nameserver 192.168.42.170
-+nameserver 192.168.42.163
++nameserver 192.168.42.83
++nameserver 192.168.42.98
  
 -nameserver 127.0.0.53
 -options edns0 trust-ad
@@ -605,7 +610,7 @@ TASK [dns_resolve : Change DNS configuration file] *****************************
 
 changed: [Yanny358-3]
 --- before: /etc/resolv.conf
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpuiat853j/resolv.conf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp2xga_31s/resolv.conf.j2
 @@ -1,19 +1,4 @@
 -# This file is managed by man:systemd-resolved(8). Do not edit.
 -#
@@ -623,8 +628,8 @@ changed: [Yanny358-3]
 -# See man:systemd-resolved.service(8) for details about the supported modes of
 -# operation for /etc/resolv.conf.
 +search iptv.cs
-+nameserver 192.168.42.170
-+nameserver 192.168.42.163
++nameserver 192.168.42.83
++nameserver 192.168.42.98
  
 -nameserver 127.0.0.53
 -options edns0 trust-ad
@@ -632,7 +637,7 @@ changed: [Yanny358-3]
 
 changed: [Yanny358-1]
 --- before: /etc/resolv.conf
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp350lyv03/resolv.conf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp89z85mie/resolv.conf.j2
 @@ -1,19 +1,4 @@
 -# This file is managed by man:systemd-resolved(8). Do not edit.
 -#
@@ -650,14 +655,19 @@ changed: [Yanny358-1]
 -# See man:systemd-resolved.service(8) for details about the supported modes of
 -# operation for /etc/resolv.conf.
 +search iptv.cs
-+nameserver 192.168.42.170
-+nameserver 192.168.42.163
++nameserver 192.168.42.83
++nameserver 192.168.42.98
  
 -nameserver 127.0.0.53
 -options edns0 trust-ad
 -search openstacklocal
 
 changed: [Yanny358-2]
+
+RUNNING HANDLER [dns_resolve : restart bind9] **********************************
+changed: [Yanny358-3]
+changed: [Yanny358-2]
+changed: [Yanny358-1]
 
 PLAY [Mysql and mysql exporter] ************************************************
 
@@ -681,7 +691,7 @@ The following NEW packages will be installed:
   mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
   python3-pymysql
 0 upgraded, 26 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-1]
+changed: [Yanny358-2]
 The following additional packages will be installed:
   libcgi-fast-perl libcgi-pm-perl libencode-locale-perl libevent-core-2.1-7
   libevent-pthreads-2.1-7 libfcgi-perl libhtml-parser-perl libhtml-tagset-perl
@@ -701,15 +711,15 @@ The following NEW packages will be installed:
   mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
   python3-pymysql
 0 upgraded, 26 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-2]
+changed: [Yanny358-1]
 
 TASK [mysql : start mysql] *****************************************************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 TASK [mysql : Copy file] *******************************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpt8k5ctd6/override.cnf
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpwja01g5c/override.cnf
 @@ -0,0 +1,7 @@
 +[mysqld]
 +bind-address = 0.0.0.0
@@ -717,11 +727,11 @@ TASK [mysql : Copy file] *******************************************************
 +log-bin = /var/log/mysql/mysql-bin.log
 +relay-log = /var/log/mysql/mysql-relay.log
 +replicate-do-db = agama
-+server-id = 170
++server-id = 83
 
 changed: [Yanny358-1]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp26hztab1/override.cnf
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpjwpxe6ew/override.cnf
 @@ -0,0 +1,7 @@
 +[mysqld]
 +bind-address = 0.0.0.0
@@ -729,7 +739,7 @@ changed: [Yanny358-1]
 +log-bin = /var/log/mysql/mysql-bin.log
 +relay-log = /var/log/mysql/mysql-relay.log
 +replicate-do-db = agama
-+server-id = 163
++server-id = 98
 
 changed: [Yanny358-2]
 
@@ -790,21 +800,12 @@ The following NEW packages will be installed:
 changed: [Yanny358-1]
 
 TASK [mysql_exporter : Create a directory if it does not exist] ****************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 TASK [mysql_exporter : Configure MySQL exporter] *******************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpth8uxu7b/my.cnf.j2
-@@ -0,0 +1,3 @@
-+[client]
-+user=mysql_exporter
-+password=12345
-\ No newline at end of file
-
-changed: [Yanny358-2]
---- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmps1wzn25j/my.cnf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpomyq9k9k/my.cnf.j2
 @@ -0,0 +1,3 @@
 +[client]
 +user=mysql_exporter
@@ -812,10 +813,19 @@ changed: [Yanny358-2]
 \ No newline at end of file
 
 changed: [Yanny358-1]
+--- before
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpu0j6283i/my.cnf.j2
+@@ -0,0 +1,3 @@
++[client]
++user=mysql_exporter
++password=12345
+\ No newline at end of file
+
+changed: [Yanny358-2]
 
 TASK [mysql_exporter : Create user exporter] ***********************************
-changed: [Yanny358-1]
 changed: [Yanny358-2]
+changed: [Yanny358-1]
 
 TASK [mysql_exporter : Pause for 10 sec] ***************************************
 Pausing for 10 seconds
@@ -824,133 +834,7 @@ ok: [Yanny358-1]
 
 TASK [mysql_exporter : Configure MySQL exporter slave] *************************
 --- before: /etc/default/prometheus-mysqld-exporter
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpvllexjyg/prometheus-mysqld-exporter
-@@ -1,120 +1 @@
--# By default the connection string will be read from
--# $HOME/my.cnf or from the file specified with the -config.my-cnf parameter.
--
--# To set a connection string from the environment instead, uncomment one of the
--# following lines.
--
--# Using UNIX domain sockets and authentication:
--# DATA_SOURCE_NAME="prometheus:nopassword@unix(/run/mysqld/mysqld.sock)/"
--
--# Using a TCP connection and password authentication:
--# DATA_SOURCE_NAME="login:password@(hostname:port)/dbname"
--
--# Note the user must be granted enough privileges for the exporter to run.
--# Example to create a user to connect with the UNIX socket:
--#
--#  CREATE USER IF NOT EXISTS 'prometheus'@'localhost' IDENTIFIED VIA unix_socket;
--#  GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'prometheus'@'localhost';
--
--# Set the command-line arguments to pass to the exporter.
--# ARGS='-config.my-cnf /etc/mysql/debian.cnf'
--
--# Usage of prometheus-mysqld-exporter:
--#   -collect.auto_increment.columns
--#     	Collect auto_increment columns and max values from information_schema
--#  --exporter.lock_wait_timeout=2
--#       Set a lock_wait_timeout on the connection to avoid long metadata
--#       locking.
--#  --exporter.log_slow_filter
--#       Add a log_slow_filter to avoid slow query logging of scrapes. NOTE: Not
--#       supported by Oracle MySQL.
--#  --collect.heartbeat.database="heartbeat"
--#       Database from where to collect heartbeat data
--#  --collect.heartbeat.table="heartbeat"
--#       Table from where to collect heartbeat data
--#  --collect.info_schema.processlist.min_time=0
--#       Minimum time a thread must be in each state to be counted
--#  --collect.info_schema.tables.databases="*"
--#       The list of databases to collect table stats for, or '*' for all
--#  --collect.perf_schema.eventsstatements.limit=250
--#       Limit the number of events statements digests by response time
--#  --collect.perf_schema.eventsstatements.timelimit=86400
--#       Limit how old the 'last_seen' events statements can be, in seconds
--#  --collect.perf_schema.eventsstatements.digest_text_limit=120
--#       Maximum length of the normalized statement text
--#  --collect.perf_schema.file_instances.filter=".*"
--#       RegEx file_name filter for performance_schema.file_summary_by_instance
--#  --collect.perf_schema.file_instances.remove_prefix="/var/lib/mysql/"
--#       Remove path prefix in performance_schema.file_summary_by_instance
--#  --web.listen-address=":9104"
--#       Address to listen on for web interface and telemetry.
--#  --web.telemetry-path="/metrics"
--#       Path under which to expose metrics.
--#  --config.my-cnf="$HOME/.my.cnf"
--#       Path to .my.cnf file to read MySQL credentials from.
--#  --collect.global_variables
--#       Collect from SHOW GLOBAL VARIABLES
--#  --collect.slave_status
--#       Collect from SHOW SLAVE STATUS
--#  --collect.info_schema.processlist
--#       Collect current thread state counts from the
--#       information_schema.processlist
--#  --collect.info_schema.tables
--#       Collect metrics from information_schema.tables
--#  --collect.info_schema.innodb_tablespaces
--#       Collect metrics from information_schema.innodb_sys_tablespaces
--#  --collect.info_schema.innodb_metrics
--#       Collect metrics from information_schema.innodb_metrics
--#  --collect.auto_increment.columns
--#       Collect auto_increment columns and max values from information_schema
--#  --collect.global_status
--#       Collect from SHOW GLOBAL STATUS
--#  --collect.perf_schema.tableiowaits
--#       Collect metrics from performance_schema.table_io_waits_summary_by_table
--#  --collect.perf_schema.indexiowaits
--#       Collect metrics from
--#       performance_schema.table_io_waits_summary_by_index_usage
--#  --collect.perf_schema.tablelocks
--#       Collect metrics from
--#       performance_schema.table_lock_waits_summary_by_table
--#  --collect.perf_schema.eventsstatements
--#       Collect metrics from
--#       performance_schema.events_statements_summary_by_digest
--#  --collect.perf_schema.eventswaits
--#       Collect metrics from
--#       performance_schema.events_waits_summary_global_by_event_name
--#  --collect.perf_schema.file_events
--#       Collect metrics from performance_schema.file_summary_by_event_name
--#  --collect.perf_schema.file_instances
--#       Collect metrics from performance_schema.file_summary_by_instance
--#  --collect.binlog_size
--#       Collect the current size of all registered binlog files
--#  --collect.info_schema.userstats
--#       If running with userstat=1, set to true to collect user statistics
--#  --collect.info_schema.clientstats
--#       If running with userstat=1, set to true to collect client statistics
--#  --collect.info_schema.tablestats
--#       If running with userstat=1, set to true to collect table statistics
--#  --collect.info_schema.innodb_cmp
--#       Collect metrics from information_schema.innodb_cmp
--#  --collect.info_schema.innodb_cmpmem
--#       Collect metrics from information_schema.innodb_cmpmem
--#  --collect.info_schema.query_response_time
--#       Collect query response time distribution if query_response_time_stats
--#       is ON.
--#  --collect.engine_tokudb_status
--#       Collect from SHOW ENGINE TOKUDB STATUS
--#  --collect.perf_schema.replication_group_member_stats
--#       Collect metrics from performance_schema.replication_group_member_stats
--#  --collect.heartbeat
--#       Collect from heartbeat
--#  --collect.slave_hosts
--#       Scrape information from 'SHOW SLAVE HOSTS'
--#  --collect.engine_innodb_status
--#       Collect from SHOW ENGINE INNODB STATUS
--#  --log.level="info"
--#       Only log messages with the given severity or above. Valid levels:
--#       [debug, info, warn, error, fatal]
--#  --log.format="logger:stderr"
--#       Set the log target and format. Example:
--#       "logger:syslog?appname=bob&local=7" or "logger:stdout?json=true"
-+ARGS="--collect.slave_status"
-
-changed: [Yanny358-2]
---- before: /etc/default/prometheus-mysqld-exporter
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpys1647af/prometheus-mysqld-exporter
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpeipzv_ex/prometheus-mysqld-exporter
 @@ -1,120 +1 @@
 -# By default the connection string will be read from
 -# $HOME/my.cnf or from the file specified with the -config.my-cnf parameter.
@@ -1075,6 +959,132 @@ changed: [Yanny358-2]
 +ARGS="--collect.slave_status"
 
 changed: [Yanny358-1]
+--- before: /etc/default/prometheus-mysqld-exporter
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp0l8ex4r4/prometheus-mysqld-exporter
+@@ -1,120 +1 @@
+-# By default the connection string will be read from
+-# $HOME/my.cnf or from the file specified with the -config.my-cnf parameter.
+-
+-# To set a connection string from the environment instead, uncomment one of the
+-# following lines.
+-
+-# Using UNIX domain sockets and authentication:
+-# DATA_SOURCE_NAME="prometheus:nopassword@unix(/run/mysqld/mysqld.sock)/"
+-
+-# Using a TCP connection and password authentication:
+-# DATA_SOURCE_NAME="login:password@(hostname:port)/dbname"
+-
+-# Note the user must be granted enough privileges for the exporter to run.
+-# Example to create a user to connect with the UNIX socket:
+-#
+-#  CREATE USER IF NOT EXISTS 'prometheus'@'localhost' IDENTIFIED VIA unix_socket;
+-#  GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'prometheus'@'localhost';
+-
+-# Set the command-line arguments to pass to the exporter.
+-# ARGS='-config.my-cnf /etc/mysql/debian.cnf'
+-
+-# Usage of prometheus-mysqld-exporter:
+-#   -collect.auto_increment.columns
+-#     	Collect auto_increment columns and max values from information_schema
+-#  --exporter.lock_wait_timeout=2
+-#       Set a lock_wait_timeout on the connection to avoid long metadata
+-#       locking.
+-#  --exporter.log_slow_filter
+-#       Add a log_slow_filter to avoid slow query logging of scrapes. NOTE: Not
+-#       supported by Oracle MySQL.
+-#  --collect.heartbeat.database="heartbeat"
+-#       Database from where to collect heartbeat data
+-#  --collect.heartbeat.table="heartbeat"
+-#       Table from where to collect heartbeat data
+-#  --collect.info_schema.processlist.min_time=0
+-#       Minimum time a thread must be in each state to be counted
+-#  --collect.info_schema.tables.databases="*"
+-#       The list of databases to collect table stats for, or '*' for all
+-#  --collect.perf_schema.eventsstatements.limit=250
+-#       Limit the number of events statements digests by response time
+-#  --collect.perf_schema.eventsstatements.timelimit=86400
+-#       Limit how old the 'last_seen' events statements can be, in seconds
+-#  --collect.perf_schema.eventsstatements.digest_text_limit=120
+-#       Maximum length of the normalized statement text
+-#  --collect.perf_schema.file_instances.filter=".*"
+-#       RegEx file_name filter for performance_schema.file_summary_by_instance
+-#  --collect.perf_schema.file_instances.remove_prefix="/var/lib/mysql/"
+-#       Remove path prefix in performance_schema.file_summary_by_instance
+-#  --web.listen-address=":9104"
+-#       Address to listen on for web interface and telemetry.
+-#  --web.telemetry-path="/metrics"
+-#       Path under which to expose metrics.
+-#  --config.my-cnf="$HOME/.my.cnf"
+-#       Path to .my.cnf file to read MySQL credentials from.
+-#  --collect.global_variables
+-#       Collect from SHOW GLOBAL VARIABLES
+-#  --collect.slave_status
+-#       Collect from SHOW SLAVE STATUS
+-#  --collect.info_schema.processlist
+-#       Collect current thread state counts from the
+-#       information_schema.processlist
+-#  --collect.info_schema.tables
+-#       Collect metrics from information_schema.tables
+-#  --collect.info_schema.innodb_tablespaces
+-#       Collect metrics from information_schema.innodb_sys_tablespaces
+-#  --collect.info_schema.innodb_metrics
+-#       Collect metrics from information_schema.innodb_metrics
+-#  --collect.auto_increment.columns
+-#       Collect auto_increment columns and max values from information_schema
+-#  --collect.global_status
+-#       Collect from SHOW GLOBAL STATUS
+-#  --collect.perf_schema.tableiowaits
+-#       Collect metrics from performance_schema.table_io_waits_summary_by_table
+-#  --collect.perf_schema.indexiowaits
+-#       Collect metrics from
+-#       performance_schema.table_io_waits_summary_by_index_usage
+-#  --collect.perf_schema.tablelocks
+-#       Collect metrics from
+-#       performance_schema.table_lock_waits_summary_by_table
+-#  --collect.perf_schema.eventsstatements
+-#       Collect metrics from
+-#       performance_schema.events_statements_summary_by_digest
+-#  --collect.perf_schema.eventswaits
+-#       Collect metrics from
+-#       performance_schema.events_waits_summary_global_by_event_name
+-#  --collect.perf_schema.file_events
+-#       Collect metrics from performance_schema.file_summary_by_event_name
+-#  --collect.perf_schema.file_instances
+-#       Collect metrics from performance_schema.file_summary_by_instance
+-#  --collect.binlog_size
+-#       Collect the current size of all registered binlog files
+-#  --collect.info_schema.userstats
+-#       If running with userstat=1, set to true to collect user statistics
+-#  --collect.info_schema.clientstats
+-#       If running with userstat=1, set to true to collect client statistics
+-#  --collect.info_schema.tablestats
+-#       If running with userstat=1, set to true to collect table statistics
+-#  --collect.info_schema.innodb_cmp
+-#       Collect metrics from information_schema.innodb_cmp
+-#  --collect.info_schema.innodb_cmpmem
+-#       Collect metrics from information_schema.innodb_cmpmem
+-#  --collect.info_schema.query_response_time
+-#       Collect query response time distribution if query_response_time_stats
+-#       is ON.
+-#  --collect.engine_tokudb_status
+-#       Collect from SHOW ENGINE TOKUDB STATUS
+-#  --collect.perf_schema.replication_group_member_stats
+-#       Collect metrics from performance_schema.replication_group_member_stats
+-#  --collect.heartbeat
+-#       Collect from heartbeat
+-#  --collect.slave_hosts
+-#       Scrape information from 'SHOW SLAVE HOSTS'
+-#  --collect.engine_innodb_status
+-#       Collect from SHOW ENGINE INNODB STATUS
+-#  --log.level="info"
+-#       Only log messages with the given severity or above. Valid levels:
+-#       [debug, info, warn, error, fatal]
+-#  --log.format="logger:stderr"
+-#       Set the log target and format. Example:
+-#       "logger:syslog?appname=bob&local=7" or "logger:stdout?json=true"
++ARGS="--collect.slave_status"
+
+changed: [Yanny358-2]
 
 TASK [mysql_exporter : Enable mysql_exporter] **********************************
 changed: [Yanny358-1]
@@ -1108,7 +1118,7 @@ changed: [Yanny358-2]
 
 TASK [mysql_backup : Create a file] ********************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp18g5u79j/my.cnf
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpmyufbktv/my.cnf
 @@ -0,0 +1,6 @@
 +[client]
 +user= backup
@@ -1119,7 +1129,7 @@ TASK [mysql_backup : Create a file] ********************************************
 
 changed: [Yanny358-1]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpiq6x8szy/my.cnf
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp_96wvfd3/my.cnf
 @@ -0,0 +1,6 @@
 +[client]
 +user= backup
@@ -1136,7 +1146,7 @@ changed: [Yanny358-2]
 
 TASK [mysql_backup : Create a file] ********************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpiuhvy4pg/mysql-backup
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp7il_7zf5/mysql-backup
 @@ -0,0 +1,3 @@
 +0 23 * * *  backup  mysqldump agama > /home/backup/mysql/agama.sql
 +0 23 * * 0  backup duplicity --no-encryption full /home/backup/mysql/ rsync://Yanny358@backup.iptv.cs//home/Yanny358/
@@ -1144,19 +1154,19 @@ TASK [mysql_backup : Create a file] ********************************************
 
 changed: [Yanny358-1]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp9ffbjakh/mysql-backup
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpbq6cwcgv/mysql-backup
 @@ -0,0 +1 @@
 +
 
 changed: [Yanny358-2]
 
 RUNNING HANDLER [mysql_exporter : Restart MySQL exporter] **********************
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 RUNNING HANDLER [mysql_exporter : Restart mysql] *******************************
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 RUNNING HANDLER [mysql_backup : restart mysql] *********************************
 changed: [Yanny358-2]
@@ -1174,7 +1184,7 @@ The following NEW packages will be installed:
   libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
   prometheus-node-exporter prometheus-node-exporter-collectors smartmontools
 0 upgraded, 7 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-1]
+changed: [Yanny358-2]
 The following additional packages will be installed:
   libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
   prometheus-node-exporter-collectors smartmontools
@@ -1184,7 +1194,7 @@ The following NEW packages will be installed:
   libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
   prometheus-node-exporter prometheus-node-exporter-collectors smartmontools
 0 upgraded, 7 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-2]
+changed: [Yanny358-1]
 The following additional packages will be installed:
   libio-pty-perl libipc-run-perl libtime-duration-perl libtimedate-perl
   moreutils prometheus-node-exporter-collectors smartmontools
@@ -1199,8 +1209,8 @@ changed: [Yanny358-3]
 
 TASK [node_exporter : Enable node exporter service] ****************************
 ok: [Yanny358-1]
-ok: [Yanny358-3]
 ok: [Yanny358-2]
+ok: [Yanny358-3]
 
 TASK [nginx : Install nginx] ***************************************************
 The following additional packages will be installed:
@@ -1230,7 +1240,7 @@ The following NEW packages will be installed:
   libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
   libwebp6 libxpm4 nginx nginx-common nginx-core
 0 upgraded, 17 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-2]
+changed: [Yanny358-1]
 The following additional packages will be installed:
   fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
   libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter
@@ -1244,11 +1254,11 @@ The following NEW packages will be installed:
   libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
   libwebp6 libxpm4 nginx nginx-common nginx-core
 0 upgraded, 17 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 TASK [nginx : Copy file] *******************************************************
 --- before: /etc/nginx/sites-enabled/default
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpzontkija/default
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmppsle3q0k/default
 @@ -1,91 +1,42 @@
 -##
 -# You should look at the following URL's in order to grasp a solid understanding
@@ -1378,7 +1388,7 @@ TASK [nginx : Copy file] *******************************************************
 
 changed: [Yanny358-2]
 --- before: /etc/nginx/sites-enabled/default
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpfs7fyr_p/default
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpcttcyfso/default
 @@ -1,91 +1,42 @@
 -##
 -# You should look at the following URL's in order to grasp a solid understanding
@@ -1508,7 +1518,7 @@ changed: [Yanny358-2]
 
 changed: [Yanny358-1]
 --- before: /etc/nginx/sites-enabled/default
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpj0tm86he/default
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpgrzqx7bo/default
 @@ -1,91 +1,34 @@
 -##
 -# You should look at the following URL's in order to grasp a solid understanding
@@ -1631,11 +1641,15 @@ changed: [Yanny358-1]
 changed: [Yanny358-3]
 
 TASK [nginx : start nginx] *****************************************************
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 ok: [Yanny358-3]
-ok: [Yanny358-1]
 
 TASK [nginx_exporter : Install nginx exporter] *********************************
+The following NEW packages will be installed:
+  prometheus-nginx-exporter
+0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
+changed: [Yanny358-2]
 The following NEW packages will be installed:
   prometheus-nginx-exporter
 0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
@@ -1644,14 +1658,21 @@ The following NEW packages will be installed:
   prometheus-nginx-exporter
 0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
 changed: [Yanny358-1]
-The following NEW packages will be installed:
-  prometheus-nginx-exporter
-0 upgraded, 1 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-2]
 
 TASK [nginx_exporter : Copy file] **********************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp7iigbctz/exporter
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpcchhgltd/exporter
+@@ -0,0 +1,6 @@
++server {
++    listen 8080 default_server;
++    location = /stub_status{
++        stub_status;
++    }
++}
+
+changed: [Yanny358-2]
+--- before
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpwr497s_w/exporter
 @@ -0,0 +1,6 @@
 +server {
 +    listen 8080 default_server;
@@ -1662,18 +1683,7 @@ TASK [nginx_exporter : Copy file] **********************************************
 
 changed: [Yanny358-1]
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpoag45q_e/exporter
-@@ -0,0 +1,6 @@
-+server {
-+    listen 8080 default_server;
-+    location = /stub_status{
-+        stub_status;
-+    }
-+}
-
-changed: [Yanny358-2]
---- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpesw68vhn/exporter
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpzt8hzfi_/exporter
 @@ -0,0 +1,6 @@
 +server {
 +    listen 8080 default_server;
@@ -1686,18 +1696,18 @@ changed: [Yanny358-3]
 
 TASK [nginx_exporter : Enable nginx_exporter] **********************************
 changed: [Yanny358-1]
-changed: [Yanny358-3]
 changed: [Yanny358-2]
+changed: [Yanny358-3]
 
 RUNNING HANDLER [nginx : restart nginx] ****************************************
-changed: [Yanny358-1]
 changed: [Yanny358-2]
+changed: [Yanny358-1]
 changed: [Yanny358-3]
 
 RUNNING HANDLER [nginx_exporter : restart nginx exporter] **********************
+changed: [Yanny358-2]
 changed: [Yanny358-1]
 changed: [Yanny358-3]
-changed: [Yanny358-2]
 
 PLAY [Docker] ******************************************************************
 
@@ -1712,17 +1722,6 @@ The following NEW packages will be installed:
   bridge-utils containerd dnsmasq-base docker.io libidn11 pigz python3-docker
   python3-websocket runc ubuntu-fan
 0 upgraded, 10 newly installed, 0 to remove and 140 not upgraded.
-changed: [Yanny358-3]
-The following additional packages will be installed:
-  bridge-utils containerd dnsmasq-base libidn11 pigz python3-websocket runc
-  ubuntu-fan
-Suggested packages:
-  ifupdown aufs-tools cgroupfs-mount | cgroup-lite debootstrap docker-doc
-  rinse zfs-fuse | zfsutils
-The following NEW packages will be installed:
-  bridge-utils containerd dnsmasq-base docker.io libidn11 pigz python3-docker
-  python3-websocket runc ubuntu-fan
-0 upgraded, 10 newly installed, 0 to remove and 140 not upgraded.
 changed: [Yanny358-2]
 The following additional packages will be installed:
   bridge-utils containerd dnsmasq-base libidn11 pigz python3-websocket runc
@@ -1735,11 +1734,22 @@ The following NEW packages will be installed:
   python3-websocket runc ubuntu-fan
 0 upgraded, 10 newly installed, 0 to remove and 140 not upgraded.
 changed: [Yanny358-1]
+The following additional packages will be installed:
+  bridge-utils containerd dnsmasq-base libidn11 pigz python3-websocket runc
+  ubuntu-fan
+Suggested packages:
+  ifupdown aufs-tools cgroupfs-mount | cgroup-lite debootstrap docker-doc
+  rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils containerd dnsmasq-base docker.io libidn11 pigz python3-docker
+  python3-websocket runc ubuntu-fan
+0 upgraded, 10 newly installed, 0 to remove and 140 not upgraded.
+changed: [Yanny358-3]
 
 TASK [docker : Log in to DockerHub] ********************************************
 changed: [Yanny358-3]
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 TASK [docker : Docker service] *************************************************
 ok: [Yanny358-3]
@@ -1775,21 +1785,10 @@ changed: [Yanny358-2]
 changed: [Yanny358-1]
 
 TASK [agama : Build docker image] **********************************************
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 TASK [agama : Agama containers] ************************************************
---- before
-+++ after
-@@ -1,4 +1,4 @@
- {
--    "exists": false,
--    "running": false
-+    "exists": true,
-+    "running": true
- }
-
-changed: [Yanny358-2] => (item={'key': 'agama1', 'value': 8007})
 --- before
 +++ after
 @@ -1,4 +1,4 @@
@@ -1811,7 +1810,7 @@ changed: [Yanny358-1] => (item={'key': 'agama1', 'value': 8007})
 +    "running": true
  }
 
-changed: [Yanny358-2] => (item={'key': 'agama2', 'value': 8008})
+changed: [Yanny358-2] => (item={'key': 'agama1', 'value': 8007})
 --- before
 +++ after
 @@ -1,4 +1,4 @@
@@ -1823,6 +1822,17 @@ changed: [Yanny358-2] => (item={'key': 'agama2', 'value': 8008})
  }
 
 changed: [Yanny358-1] => (item={'key': 'agama2', 'value': 8008})
+--- before
++++ after
+@@ -1,4 +1,4 @@
+ {
+-    "exists": false,
+-    "running": false
++    "exists": true,
++    "running": true
+ }
+
+changed: [Yanny358-2] => (item={'key': 'agama2', 'value': 8008})
 
 PLAY [Prometheus] **************************************************************
 
@@ -1846,7 +1856,7 @@ changed: [Yanny358-3]
 
 TASK [prometheus : Configure Prometheus] ***************************************
 --- before: /etc/prometheus/prometheus.yml
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp8l5fh1ce/prometheus.yml.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp3e5h81am/prometheus.yml.j2
 @@ -1,44 +1,56 @@
 -# Sample config for Prometheus.
 -
@@ -1940,7 +1950,7 @@ changed: [Yanny358-3]
 
 TASK [prometheus : Configure Prometheus web path] ******************************
 --- before: /etc/default/prometheus
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp5tllntlp/prometheus.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpbot0__hf/prometheus.j2
 @@ -1,57 +1 @@
 -# Set the command-line arguments to pass to the server.
 -ARGS=""
@@ -1999,7 +2009,7 @@ TASK [prometheus : Configure Prometheus web path] ******************************
 -#                             Maximum number of queries executed concurrently.
 -#  --log.level=info           Only log messages with the given severity or
 -#                             above. One of: [debug, info, warn, error]
-+ARGS="--web.external-url=http://prometheus:7280/prometheus"
++ARGS="--web.external-url=http://prometheus:6080/prometheus"
 \ No newline at end of file
 
 changed: [Yanny358-3]
@@ -2060,7 +2070,7 @@ changed: [Yanny358-3] => (item=datasources)
 
 TASK [grafana : Datasource Grafana prometheus] *********************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpzlkv2fi3/sample.yaml
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpz2zez4r2/sample.yaml
 @@ -0,0 +1,47 @@
 +# # config file version
 +apiVersion: 1
@@ -2115,7 +2125,7 @@ changed: [Yanny358-3]
 
 TASK [grafana : Datasource Grafana latency] ************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp1506wkx6/latency.yaml
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpu1ndd3c0/latency.yaml
 @@ -0,0 +1,17 @@
 +# # config file version
 +apiVersion: 1
@@ -2140,7 +2150,7 @@ changed: [Yanny358-3]
 
 TASK [grafana : Dashboard Grafana main] ****************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpfsbxmrl7/main.yaml
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmppu3iwe7m/main.yaml
 @@ -0,0 +1,13 @@
 +apiVersion: 1
 +
@@ -4407,7 +4417,7 @@ changed: [Yanny358-3]
 
 TASK [influxdb : Supress influxdb request logging] *****************************
 --- before: /etc/influxdb/influxdb.conf
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp55jtxezd/influxdb.conf
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp8pkkxzuf/influxdb.conf
 @@ -1,596 +1,22 @@
 -### Welcome to the InfluxDB configuration file.
 -
@@ -5024,7 +5034,7 @@ changed: [Yanny358-3]
 
 TASK [influxdb_exporter : InfluxDB stats exporter service] *********************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpdegosiy2/prometheus-influxdb-stats-exporter.service
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp8l7ceilh/prometheus-influxdb-stats-exporter.service
 @@ -0,0 +1,11 @@
 +[Unit]
 +Description=Shows influxdb stats
@@ -5060,7 +5070,7 @@ changed: [Yanny358-3]
 
 TASK [influxdb_backup : Create a file] *****************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpwig0naos/influxdb-backup
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp9blrbrti/influxdb-backup
 @@ -0,0 +1,3 @@
 +59 22 * * 0  backup rm -rf /home/backup/influxdb/*
 +0 23 * * 0  backup  influxd backup -portable -database telegraf /home/backup/influxdb
@@ -5093,7 +5103,7 @@ changed: [Yanny358-3]
 
 TASK [pinger : pinger configuration] *******************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpv2zvovh3/pinger.conf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpszb6ru6d/pinger.conf.j2
 @@ -0,0 +1,3 @@
 +database_url=http://influxdb:8086
 +database_name=latency
@@ -5103,7 +5113,7 @@ changed: [Yanny358-3]
 
 TASK [pinger : pinger script] **************************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpmrv2i5wi/pinger.sh
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmplba2lzys/pinger.sh
 @@ -0,0 +1,26 @@
 +#!/bin/bash
 +
@@ -5136,7 +5146,7 @@ changed: [Yanny358-3]
 
 TASK [pinger : pinger service] *************************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpmub7dfo6/pinger.service
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp321_79wz/pinger.service
 @@ -0,0 +1,11 @@
 +[Unit]
 +Description=Shows connection latency
@@ -5158,7 +5168,7 @@ changed: [Yanny358-3]
 
 TASK [rsyslog : Reconfigure rsyslog] *******************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpbvkrrtd3/10-telegraf.conf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpd9f7xq05/10-telegraf.conf.j2
 @@ -0,0 +1,6 @@
 +$ActionQueueType LinkedList # use asynchronous processing
 +$ActionQueueFileName srvrfwd # set file name, also enables disk mode
@@ -5209,7 +5219,7 @@ changed: [Yanny358-2]
 
 TASK [haproxy : Copy file] *****************************************************
 --- before: /etc/haproxy/haproxy.cfg
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp1kq8oqrv/haproxy.cfg.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpnxkva3dx/haproxy.cfg.j2
 @@ -8,15 +8,7 @@
  	group haproxy
  	daemon
@@ -5244,7 +5254,7 @@ TASK [haproxy : Copy file] *****************************************************
 
 changed: [Yanny358-1]
 --- before: /etc/haproxy/haproxy.cfg
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpj4prybyk/haproxy.cfg.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpy9an41yt/haproxy.cfg.j2
 @@ -8,15 +8,7 @@
  	group haproxy
  	daemon
@@ -5280,8 +5290,8 @@ changed: [Yanny358-1]
 changed: [Yanny358-2]
 
 TASK [haproxy : start haproxy] *************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [haproxy_exporter : Install haproxy exporter] *****************************
 The following NEW packages will be installed:
@@ -5295,7 +5305,7 @@ changed: [Yanny358-2]
 
 TASK [haproxy_exporter : Copy file] ********************************************
 --- before: /etc/default/prometheus-haproxy-exporter
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp62fj77oz/exporter.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp30w134p9/exporter.j2
 @@ -1,35 +1 @@
 -# Set the command-line arguments to pass to the server.
 -# Due to shell scaping, to pass backslashes for regexes, you need to double
@@ -5336,7 +5346,7 @@ TASK [haproxy_exporter : Copy file] ********************************************
 
 changed: [Yanny358-1]
 --- before: /etc/default/prometheus-haproxy-exporter
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpxdk_keaq/exporter.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpwk_qp7zg/exporter.j2
 @@ -1,35 +1 @@
 -# Set the command-line arguments to pass to the server.
 -# Due to shell scaping, to pass backslashes for regexes, you need to double
@@ -5418,64 +5428,30 @@ The following NEW packages will be installed:
 changed: [Yanny358-2]
 
 TASK [keepalived : Create user keepalived_script] ******************************
-changed: [Yanny358-1]
 changed: [Yanny358-2]
+changed: [Yanny358-1]
 
 TASK [keepalived : Copy file ha88.j2] ******************************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpm_27hlhe/ha88.j2
-@@ -0,0 +1,3 @@
-+#!/bin/bash
-+ss -ntl | grep -q ':88 '
-+
-
-changed: [Yanny358-2]
---- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpbyq1pgam/ha88.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpydou4zj8/ha88.j2
 @@ -0,0 +1,3 @@
 +#!/bin/bash
 +ss -ntl | grep -q ':88 '
 +
 
 changed: [Yanny358-1]
-
-TASK [keepalived : Copy file keepalived.conf.j2] *******************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpsczb7bnv/keepalived.conf.j2
-@@ -0,0 +1,29 @@
-+vrrp_script check_haproxy {                 
-+    script "/home/keepalived_script/vrrp_script" 
-+    weight 20                              
-+    interval 1               
-+}
-+
-+global_defs {
-+    enable_script_security
-+    script_user keepalived_script
-+}
-+
-+vrrp_instance agama1 {             
-+    interface ens3
-+    virtual_router_id 1
-+        priority 99
-+        advert_int 1                            
-+    virtual_ipaddress {                     
-+         192.168.100.170/24                    
-+    }
-+
-+    unicast_peer {                          
-+                        192.168.42.170
-+                                    }
-+    track_script {
-+        check_haproxy
-+    }
-+
-+}
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpcnkg14cn/ha88.j2
+@@ -0,0 +1,3 @@
++#!/bin/bash
++ss -ntl | grep -q ':88 '
 +
 
 changed: [Yanny358-2]
+
+TASK [keepalived : Copy file keepalived.conf.j2] *******************************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmpil2c36wv/keepalived.conf.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpl6vc9gdc/keepalived.conf.j2
 @@ -0,0 +1,29 @@
 +vrrp_script check_haproxy {                 
 +    script "/home/keepalived_script/vrrp_script" 
@@ -5494,11 +5470,11 @@ changed: [Yanny358-2]
 +        priority 100
 +        advert_int 1                            
 +    virtual_ipaddress {                     
-+         192.168.100.170/24                    
++         192.168.100.83/24                    
 +    }
 +
 +    unicast_peer {                          
-+                                        192.168.42.163
++                                        192.168.42.98
 +                    }
 +    track_script {
 +        check_haproxy
@@ -5508,6 +5484,40 @@ changed: [Yanny358-2]
 +
 
 changed: [Yanny358-1]
+--- before
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpoug_9lbh/keepalived.conf.j2
+@@ -0,0 +1,29 @@
++vrrp_script check_haproxy {                 
++    script "/home/keepalived_script/vrrp_script" 
++    weight 20                              
++    interval 1               
++}
++
++global_defs {
++    enable_script_security
++    script_user keepalived_script
++}
++
++vrrp_instance agama1 {             
++    interface ens3
++    virtual_router_id 1
++        priority 99
++        advert_int 1                            
++    virtual_ipaddress {                     
++         192.168.100.83/24                    
++    }
++
++    unicast_peer {                          
++                        192.168.42.83
++                                    }
++    track_script {
++        check_haproxy
++    }
++
++}
++
+
+changed: [Yanny358-2]
 
 TASK [keepalived : start keepalived] *******************************************
 changed: [Yanny358-2]
@@ -5519,25 +5529,7 @@ changed: [Yanny358-1]
 
 TASK [keepalived_exporter : Create keepalived-exporter service] ****************
 --- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp84t7heo_/keepalived-exporter.service.j2
-@@ -0,0 +1,12 @@
-+[Unit]
-+Description=Exporter for keepalived
-+Documentation=https://github.com/cafebazaar/keepalived-exporter
-+
-+[Service]
-+Restart=always
-+User=root
-+ExecStart=/usr/local/bin/keepalived-exporter-1.2.0.linux-amd64/keepalived-exporter $ARGS
-+
-+
-+[Install]
-+WantedBy=multi-user.target
-\ No newline at end of file
-
-changed: [Yanny358-2]
---- before
-+++ after: /Users/yannybrown/.ansible/tmp/ansible-local-6110kmmdtdfl/tmp__7ebuai/keepalived-exporter.service.j2
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmpqpv6fwq7/keepalived-exporter.service.j2
 @@ -0,0 +1,12 @@
 +[Unit]
 +Description=Exporter for keepalived
@@ -5554,29 +5546,47 @@ changed: [Yanny358-2]
 \ No newline at end of file
 
 changed: [Yanny358-1]
+--- before
++++ after: /Users/yannybrown/.ansible/tmp/ansible-local-527966olmltdl/tmp6fh5hc3s/keepalived-exporter.service.j2
+@@ -0,0 +1,12 @@
++[Unit]
++Description=Exporter for keepalived
++Documentation=https://github.com/cafebazaar/keepalived-exporter
++
++[Service]
++Restart=always
++User=root
++ExecStart=/usr/local/bin/keepalived-exporter-1.2.0.linux-amd64/keepalived-exporter $ARGS
++
++
++[Install]
++WantedBy=multi-user.target
+\ No newline at end of file
+
+changed: [Yanny358-2]
 
 TASK [keepalived_exporter : Start service keepalived-exporter, if not started] ***
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 RUNNING HANDLER [keepalived : restart keepalived, haproxy] *********************
-changed: [Yanny358-2] => (item=haproxy)
 changed: [Yanny358-1] => (item=haproxy)
+changed: [Yanny358-2] => (item=haproxy)
 changed: [Yanny358-1] => (item=keepalived)
 changed: [Yanny358-2] => (item=keepalived)
 
 RUNNING HANDLER [keepalived_exporter : reload systemd] *************************
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 RUNNING HANDLER [keepalived_exporter : restart keepalived-exporter] ************
-changed: [Yanny358-2]
 changed: [Yanny358-1]
+changed: [Yanny358-2]
 
 PLAY RECAP *********************************************************************
-Yanny358-1                 : ok=84   changed=68   unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
-Yanny358-2                 : ok=83   changed=68   unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
-Yanny358-3                 : ok=88   changed=72   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+Yanny358-1                 : ok=86   changed=70   unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+Yanny358-2                 : ok=85   changed=70   unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+Yanny358-3                 : ok=89   changed=73   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 
 + ansible-playbook infra.yaml --diff
 
@@ -5606,39 +5616,39 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [init : Update APT cache] *************************************************
-ok: [Yanny358-2]
-ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [backup : Create user backup] *********************************************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 ok: [Yanny358-3]
 
 TASK [backup : Create  SSH key for user backup] ********************************
-ok: [Yanny358-2]
-ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [backup : Create directory] ***********************************************
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 ok: [Yanny358-3]
-ok: [Yanny358-1]
 
 TASK [backup : Install duplicity] **********************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [backup : Create a file] **************************************************
-ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [iptables : Fix ssl bug for docker] ***************************************
+ok: [Yanny358-3]
 ok: [Yanny358-1]
 ok: [Yanny358-2]
-ok: [Yanny358-3]
 
 TASK [iptables : Restore iptables] *********************************************
 [WARNING]: Attempts to restore iptables state without rollback in case of
@@ -5657,40 +5667,45 @@ regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
 ok: [Yanny358-2]
-ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-3]
 
 TASK [iptables : Install iptables-persistent] **********************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [iptables : Saving iptables rules over reboot] ****************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 PLAY [Bind9 and bind exporters] ************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [Yanny358-1]
 ok: [Yanny358-3]
 ok: [Yanny358-2]
-ok: [Yanny358-1]
 
 TASK [bind : Install package "bind9"] ******************************************
-ok: [Yanny358-2]
-ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [bind : Copy new named.conf.options] **************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Copy db.iptv.cs] **************************************************
 skipping: [Yanny358-1]
 skipping: [Yanny358-2]
 ok: [Yanny358-3]
+
+TASK [bind : Copy db.iptv_slave.cs] ********************************************
+skipping: [Yanny358-3]
+ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Copy db.reverse] **************************************************
 skipping: [Yanny358-1]
@@ -5699,8 +5714,8 @@ ok: [Yanny358-3]
 
 TASK [bind : Copy new named.conf.local] ****************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Flush] ************************************************************
 
@@ -5716,8 +5731,8 @@ skipping: [Yanny358-1] => (item={'key': 'lb1', 'value': 'Yanny358-1'})
 skipping: [Yanny358-1] => (item={'key': 'lb2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-1] => (item={'key': 'mysql1', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-1] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
-skipping: [Yanny358-2] => (item={'key': 'grafana', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-1] => (item={'key': 'ns1', 'value': 'Yanny358-3'}) 
+skipping: [Yanny358-2] => (item={'key': 'grafana', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-2] => (item={'key': 'influxdb', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-1] => (item={'key': 'ns2', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-2] => (item={'key': 'lb1', 'value': 'Yanny358-1'}) 
@@ -5726,10 +5741,10 @@ skipping: [Yanny358-2] => (item={'key': 'lb2', 'value': 'Yanny358-2'})
 skipping: [Yanny358-1] => (item={'key': 'prometheus', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-2] => (item={'key': 'mysql1', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-1] => (item={'key': 'web1', 'value': 'Yanny358-1'}) 
-skipping: [Yanny358-2] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-1] => (item={'key': 'web2', 'value': 'Yanny358-2'}) 
-skipping: [Yanny358-2] => (item={'key': 'ns1', 'value': 'Yanny358-3'}) 
+skipping: [Yanny358-2] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-1] => (item={'key': 'web3', 'value': 'Yanny358-3'}) 
+skipping: [Yanny358-2] => (item={'key': 'ns1', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-2] => (item={'key': 'ns2', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-2] => (item={'key': 'ns3', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-2] => (item={'key': 'prometheus', 'value': 'Yanny358-3'}) 
@@ -5751,42 +5766,42 @@ ok: [Yanny358-3] => (item={'key': 'web2', 'value': 'Yanny358-2'})
 ok: [Yanny358-3] => (item={'key': 'web3', 'value': 'Yanny358-3'})
 
 TASK [bind : Service bind] *****************************************************
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 ok: [Yanny358-3]
-ok: [Yanny358-1]
 
 TASK [bind_exporter : Install bind exporter] ***********************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind_exporter : Enable bind_exporter] ************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 PLAY [DNS Resolve] *************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [dns_resolve : Stop Ubuntu systemd-resolved] ******************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [dns_resolve : Change DNS configuration file] *****************************
-ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 PLAY [Mysql and mysql exporter] ************************************************
 
 TASK [mysql : Install mysql] ***************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql : start mysql] *****************************************************
 ok: [Yanny358-1]
@@ -5797,16 +5812,16 @@ ok: [Yanny358-2]
 ok: [Yanny358-1]
 
 TASK [mysql : MySQL database] **************************************************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 TASK [mysql : MySQL user] ******************************************************
 ok: [Yanny358-2]
 ok: [Yanny358-1]
 
 TASK [mysql : MySQL user replication] ******************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql : MySQL replica read only mode ON] *********************************
 skipping: [Yanny358-2]
@@ -5819,35 +5834,35 @@ ok: [Yanny358-2]
 TASK [mysql : Flush handlers] **************************************************
 
 TASK [mysql_exporter : Install mysql exporter] *********************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql_exporter : Create a directory if it does not exist] ****************
 ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [mysql_exporter : Configure MySQL exporter] *******************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql_exporter : Create user exporter] ***********************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql_exporter : Pause for 10 sec] ***************************************
 skipping: [Yanny358-1]
 
 TASK [mysql_exporter : Configure MySQL exporter slave] *************************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 TASK [mysql_exporter : Enable mysql_exporter] **********************************
 ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [mysql_backup : Create directory] *****************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql_backup : Create a file] ********************************************
 ok: [Yanny358-1]
@@ -5864,9 +5879,9 @@ ok: [Yanny358-2]
 PLAY [Node exporter and nginx exporter] ****************************************
 
 TASK [node_exporter : Install node exporters] **********************************
-ok: [Yanny358-2]
-ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [node_exporter : Enable node exporter service] ****************************
 ok: [Yanny358-1]
@@ -5874,14 +5889,14 @@ ok: [Yanny358-2]
 ok: [Yanny358-3]
 
 TASK [nginx : Install nginx] ***************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [nginx : Copy file] *******************************************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [nginx : start nginx] *****************************************************
 ok: [Yanny358-1]
@@ -5890,35 +5905,35 @@ ok: [Yanny358-3]
 
 TASK [nginx_exporter : Install nginx exporter] *********************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [nginx_exporter : Copy file] **********************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 ok: [Yanny358-3]
 
 TASK [nginx_exporter : Enable nginx_exporter] **********************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 ok: [Yanny358-3]
 
 PLAY [Docker] ******************************************************************
 
 TASK [docker : Docker package] *************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [docker : Log in to DockerHub] ********************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 ok: [Yanny358-3]
 
 TASK [docker : Docker service] *************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 PLAY [agama] *******************************************************************
 
@@ -5931,12 +5946,12 @@ ok: [Yanny358-2]
 ok: [Yanny358-1]
 
 TASK [agama : Build docker image] **********************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [agama : Agama containers] ************************************************
-ok: [Yanny358-2] => (item={'key': 'agama1', 'value': 8007})
 ok: [Yanny358-1] => (item={'key': 'agama1', 'value': 8007})
+ok: [Yanny358-2] => (item={'key': 'agama1', 'value': 8007})
 ok: [Yanny358-2] => (item={'key': 'agama2', 'value': 8008})
 ok: [Yanny358-1] => (item={'key': 'agama2', 'value': 8008})
 
@@ -6064,24 +6079,24 @@ ok: [Yanny358-3]
 PLAY [Haproxy] *****************************************************************
 
 TASK [haproxy : Install haproxy] ***********************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [haproxy : Copy file] *****************************************************
 ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [haproxy : start haproxy] *************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [haproxy_exporter : Install haproxy exporter] *****************************
 ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [haproxy_exporter : Copy file] ********************************************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 TASK [haproxy_exporter : Enable haproxy_exporter] ******************************
 ok: [Yanny358-1]
@@ -6090,12 +6105,12 @@ ok: [Yanny358-2]
 PLAY [Keepalived] **************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [keepalived : Install keepalived] *****************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [keepalived : Create user keepalived_script] ******************************
 ok: [Yanny358-1]
@@ -6114,36 +6129,36 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [keepalived_exporter : Download and unarchive keepalived exporter] ********
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [keepalived_exporter : Create keepalived-exporter service] ****************
 ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [keepalived_exporter : Start service keepalived-exporter, if not started] ***
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 PLAY RECAP *********************************************************************
-Yanny358-1                 : ok=70   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
-Yanny358-2                 : ok=70   changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
-Yanny358-3                 : ok=76   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+Yanny358-1                 : ok=71   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+Yanny358-2                 : ok=71   changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+Yanny358-3                 : ok=76   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 
 + ansible all -b -m reboot -a test_command=uptime
-Yanny358-2 | CHANGED => {
-    "changed": true,
-    "elapsed": 40,
-    "rebooted": true
-}
 Yanny358-3 | CHANGED => {
     "changed": true,
-    "elapsed": 39,
+    "elapsed": 29,
+    "rebooted": true
+}
+Yanny358-2 | CHANGED => {
+    "changed": true,
+    "elapsed": 41,
     "rebooted": true
 }
 Yanny358-1 | CHANGED => {
     "changed": true,
-    "elapsed": 40,
+    "elapsed": 41,
     "rebooted": true
 }
 + ansible-playbook infra.yaml --diff
@@ -6152,8 +6167,8 @@ PLAY [debug] *******************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [debug : Debug] ***********************************************************
 ok: [Yanny358-3] => {
@@ -6174,39 +6189,39 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [init : Update APT cache] *************************************************
+ok: [Yanny358-1]
 ok: [Yanny358-2]
 ok: [Yanny358-3]
-ok: [Yanny358-1]
 
 TASK [backup : Create user backup] *********************************************
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 ok: [Yanny358-1]
 
 TASK [backup : Create  SSH key for user backup] ********************************
-ok: [Yanny358-2]
 ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [backup : Create directory] ***********************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [backup : Install duplicity] **********************************************
-ok: [Yanny358-2]
-ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [backup : Create a file] **************************************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [iptables : Fix ssl bug for docker] ***************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [iptables : Restore iptables] *********************************************
 [WARNING]: Attempts to restore iptables state without rollback in case of
@@ -6224,41 +6239,46 @@ mistake may lead the ansible controller to loose access to the hosts and never
 regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
-ok: [Yanny358-2]
 ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [iptables : Install iptables-persistent] **********************************
+ok: [Yanny358-1]
 ok: [Yanny358-3]
 ok: [Yanny358-2]
-ok: [Yanny358-1]
 
 TASK [iptables : Saving iptables rules over reboot] ****************************
+ok: [Yanny358-1]
 ok: [Yanny358-3]
 ok: [Yanny358-2]
-ok: [Yanny358-1]
 
 PLAY [Bind9 and bind exporters] ************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Install package "bind9"] ******************************************
-ok: [Yanny358-2]
 ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Copy new named.conf.options] **************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Copy db.iptv.cs] **************************************************
 skipping: [Yanny358-1]
 skipping: [Yanny358-2]
 ok: [Yanny358-3]
+
+TASK [bind : Copy db.iptv_slave.cs] ********************************************
+skipping: [Yanny358-3]
+ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [bind : Copy db.reverse] **************************************************
 skipping: [Yanny358-1]
@@ -6290,13 +6310,13 @@ skipping: [Yanny358-2] => (item={'key': 'influxdb', 'value': 'Yanny358-3'})
 skipping: [Yanny358-1] => (item={'key': 'ns2', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-2] => (item={'key': 'lb1', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-1] => (item={'key': 'ns3', 'value': 'Yanny358-2'}) 
-skipping: [Yanny358-2] => (item={'key': 'lb2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-1] => (item={'key': 'prometheus', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-1] => (item={'key': 'web1', 'value': 'Yanny358-1'}) 
-skipping: [Yanny358-2] => (item={'key': 'mysql1', 'value': 'Yanny358-1'}) 
+skipping: [Yanny358-2] => (item={'key': 'lb2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-1] => (item={'key': 'web2', 'value': 'Yanny358-2'}) 
-skipping: [Yanny358-2] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
+skipping: [Yanny358-2] => (item={'key': 'mysql1', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-1] => (item={'key': 'web3', 'value': 'Yanny358-3'}) 
+skipping: [Yanny358-2] => (item={'key': 'mysql2', 'value': 'Yanny358-2'}) 
 skipping: [Yanny358-2] => (item={'key': 'ns1', 'value': 'Yanny358-3'}) 
 skipping: [Yanny358-2] => (item={'key': 'ns2', 'value': 'Yanny358-1'}) 
 skipping: [Yanny358-2] => (item={'key': 'ns3', 'value': 'Yanny358-2'}) 
@@ -6320,18 +6340,18 @@ ok: [Yanny358-3] => (item={'key': 'web3', 'value': 'Yanny358-3'})
 
 TASK [bind : Service bind] *****************************************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [bind_exporter : Install bind exporter] ***********************************
-ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
+ok: [Yanny358-3]
 
 TASK [bind_exporter : Enable bind_exporter] ************************************
 ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 PLAY [DNS Resolve] *************************************************************
 
@@ -6341,9 +6361,9 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [dns_resolve : Stop Ubuntu systemd-resolved] ******************************
-ok: [Yanny358-3]
 ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-3]
 
 TASK [dns_resolve : Change DNS configuration file] *****************************
 ok: [Yanny358-3]
@@ -6353,16 +6373,16 @@ ok: [Yanny358-2]
 PLAY [Mysql and mysql exporter] ************************************************
 
 TASK [mysql : Install mysql] ***************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql : start mysql] *****************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql : Copy file] *******************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql : MySQL database] **************************************************
 ok: [Yanny358-1]
@@ -6399,15 +6419,15 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [mysql_exporter : Create user exporter] ***********************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql_exporter : Pause for 10 sec] ***************************************
 skipping: [Yanny358-1]
 
 TASK [mysql_exporter : Configure MySQL exporter slave] *************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [mysql_exporter : Enable mysql_exporter] **********************************
 ok: [Yanny358-1]
@@ -6433,23 +6453,23 @@ PLAY [Node exporter and nginx exporter] ****************************************
 
 TASK [node_exporter : Install node exporters] **********************************
 ok: [Yanny358-2]
-ok: [Yanny358-3]
 ok: [Yanny358-1]
+ok: [Yanny358-3]
 
 TASK [node_exporter : Enable node exporter service] ****************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 ok: [Yanny358-3]
 
 TASK [nginx : Install nginx] ***************************************************
-ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
+ok: [Yanny358-3]
 
 TASK [nginx : Copy file] *******************************************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [nginx : start nginx] *****************************************************
 ok: [Yanny358-1]
@@ -6458,8 +6478,8 @@ ok: [Yanny358-3]
 
 TASK [nginx_exporter : Install nginx exporter] *********************************
 ok: [Yanny358-1]
-ok: [Yanny358-2]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [nginx_exporter : Copy file] **********************************************
 ok: [Yanny358-1]
@@ -6474,14 +6494,14 @@ ok: [Yanny358-3]
 PLAY [Docker] ******************************************************************
 
 TASK [docker : Docker package] *************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
 ok: [Yanny358-3]
+ok: [Yanny358-2]
 
 TASK [docker : Log in to DockerHub] ********************************************
-ok: [Yanny358-3]
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
+ok: [Yanny358-3]
 
 TASK [docker : Docker service] *************************************************
 ok: [Yanny358-1]
@@ -6495,8 +6515,8 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [agama : Download agama Dockerfile] ***************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [agama : Build docker image] **********************************************
 ok: [Yanny358-1]
@@ -6640,12 +6660,12 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [haproxy : start haproxy] *************************************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [haproxy_exporter : Install haproxy exporter] *****************************
-ok: [Yanny358-2]
 ok: [Yanny358-1]
+ok: [Yanny358-2]
 
 TASK [haproxy_exporter : Copy file] ********************************************
 ok: [Yanny358-1]
@@ -6678,8 +6698,8 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 TASK [keepalived : start keepalived] *******************************************
-ok: [Yanny358-1]
 ok: [Yanny358-2]
+ok: [Yanny358-1]
 
 TASK [keepalived_exporter : Download and unarchive keepalived exporter] ********
 ok: [Yanny358-2]
@@ -6694,9 +6714,9 @@ ok: [Yanny358-1]
 ok: [Yanny358-2]
 
 PLAY RECAP *********************************************************************
-Yanny358-1                 : ok=70   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
-Yanny358-2                 : ok=70   changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
-Yanny358-3                 : ok=76   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+Yanny358-1                 : ok=71   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+Yanny358-2                 : ok=71   changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+Yanny358-3                 : ok=76   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 
 + date
-Thu Jan 13 18:47:15 EET 2022
+Sun Jan 16 15:08:48 EET 2022
