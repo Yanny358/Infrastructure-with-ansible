@@ -18,6 +18,7 @@
     owner: prometheus
     group: prometheus
     mode: 0644
+  no_log: true
   notify: Restart MySQL exporter
 
 - name: Create user exporter
