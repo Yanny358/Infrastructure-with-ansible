@@ -42,7 +42,7 @@
     dest: /etc/bind/named.conf.local
   notify: restart bind9
 
-- name: Flush
+- name: Force all notified handlers to run at this point
   meta: flush_handlers 
 
 - name: Nsupdate A records
