@@ -9,7 +9,7 @@
 ### Bind slave
 ### Prometheus exporters for HAProxy, Keepalived, MySQL and Bind slave
 
-## Remaining machine should have these services set up and running:
+## Remaining machine  have these services set up and running:
 
 ### Bind master
 ### InfluxDB
@@ -17,3 +17,5 @@
 ### Prometheus
 ### Grafana
 ### Nginx as frontend for Grafana and Prometheus
+
+*All changes of ip addresses, ports, users of virtual machines are done in hosts file*
